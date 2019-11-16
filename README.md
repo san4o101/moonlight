@@ -1,4 +1,4 @@
-<img src="public/images/moon_logo.svg" alt="Logotype" height="20%" width="20%">
+<img src="public/images/moon_logo.svg" alt="Logotype" height="80px" width="80px">
 
 # MOONLIGHT SYSTEM
 
