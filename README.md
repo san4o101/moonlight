@@ -2,9 +2,9 @@
 
 # MOONLIGHT SYSTEM
 
-#### Info
+### Info
 coming soon...
-#### Install
+### Install
 <b>Clone repository</b>
 ```
 git clone https://github.com/san4o101/moonlight
@@ -45,7 +45,7 @@ rails db:migrate
 ```
 rails s
 ```
-#### Tests
+### Tests
 coming soon...
-#### Start app
+### Start app
 coming soon...
