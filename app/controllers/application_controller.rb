@@ -18,8 +18,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def after_sign_in_path_for(resource)
-    admin_home_path if resource.admin_role?
-    employee_home_path if resource.user_role?
+    ApplicationHelper.redirect_to_role_route(resource)
   end
 
   private

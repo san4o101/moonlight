@@ -1,0 +1,11 @@
+
+@import 'bootstrap';
+
+.alert-notice {
+  color: #4e4b57;
+  background-color: #cacae4;
+  border-color: #dfe1e6;
+}
+.alert-alert {
+  @extend .alert-danger
+}

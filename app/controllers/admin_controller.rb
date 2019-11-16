@@ -7,8 +7,7 @@ class AdminController < ApplicationController
 
   def authenticate_user!
     unless pundit_user.admin_role?
-      render(file: File.join(Rails.root, 'public/403.html'), status: :forbidden,
-             layout: false)
+      ApplicationHelper.render_error_page(403, :forbidden)
     end
   end
 
