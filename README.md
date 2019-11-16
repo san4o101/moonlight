@@ -1,4 +1,5 @@
-![Logotype](https://github.com/san4o101/moonlight/tree/master/public/images/moon_logo.svg)
+<img src="public/images/moon_logo.svg" alt="Logotype" height="20%" width="20%">
+
 # MOONLIGHT SYSTEM
 
 #### Info
