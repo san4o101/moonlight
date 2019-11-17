@@ -6,7 +6,7 @@ module ApplicationHelper
   end
 
   def render_error_page(error, status)
-    render(file: File.join(Rails.root, 'public/' + error + '.html'),
+    render(file: File.join(Rails.root, "public/#{error}.html"),
            status: status, layout: false)
   end
 
