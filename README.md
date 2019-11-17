@@ -32,6 +32,10 @@ export MAILER_USER=""
 export MAILER_PASSWORD=""
 ```
 Or create ```.sh``` script and run this <br>
+<b>Heroku env variables</b><br>
+```
+heroku config:set GITHUB_USERNAME=
+```
 <b>Database and migration</b> <br>
 Create database
 ```
