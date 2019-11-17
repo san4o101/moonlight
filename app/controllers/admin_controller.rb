@@ -1,4 +1,7 @@
 class AdminController < ApplicationController
+
+  include ApplicationHelper
+
   before_action :authenticate_user!
 
   layout 'admin'
@@ -7,7 +10,7 @@ class AdminController < ApplicationController
 
   def authenticate_user!
     unless pundit_user.admin_role?
-      ApplicationHelper.render_error_page(403, :forbidden)
+      render_error_page(403, :forbidden)
     end
   end
 

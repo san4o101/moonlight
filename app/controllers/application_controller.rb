@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
 
+  include ApplicationHelper
+
   # TODO: testing this
   # before_action :set_locale
   # def set_locale
@@ -18,7 +20,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def after_sign_in_path_for(resource)
-    ApplicationHelper.redirect_to_role_route(resource)
+    redirect_to_role_route(resource)
   end
 
   private
