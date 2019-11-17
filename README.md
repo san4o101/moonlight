@@ -26,6 +26,7 @@ export DATABASE_PASSWORD=""
 export MOONLIGHT_DATABASE_DEV=""
 export MOONLIGHT_DATABASE_TEST=""
 export MOONLIGHT_DATABASE_PROD=""
+export MOONLIGHT_DATABASE_URL=""
 export MAILER_HOST=""
 export MAILER_PORT=""
 export MAILER_USER=""
@@ -34,7 +35,7 @@ export MAILER_PASSWORD=""
 Or create ```.sh``` script and run this <br>
 <b>Heroku env variables</b><br>
 ```
-heroku config:set GITHUB_USERNAME=
+heroku config:set GITHUB_USERNAME=""
 ```
 <b>Database and migration</b> <br>
 Create database
