@@ -1,0 +1,9 @@
+<% if pundit_user.full_name? %>
+  <li class="nav-item">
+    <a class="nav-link <%= current_page?(info_path(pundit_user)) ? ' active ' : '' %>"
+       href="<%= info_path(pundit_user) %>">
+      Link 1
+      <span class="badge badge-danger">Warning!</span>
+    </a>
+  </li>
+<% end %>

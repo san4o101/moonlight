@@ -1,7 +1,5 @@
 class ApplicationController < ActionController::Base
 
-  include ApplicationHelper
-
   # TODO: testing this
   # before_action :set_locale
   # def set_locale
@@ -20,7 +18,19 @@ class ApplicationController < ActionController::Base
   protected
 
   def after_sign_in_path_for(resource)
+    session[:user_id] = resource.id
     redirect_to_role_route(resource)
+  end
+
+  def render_error_page(error, status)
+    render(file: File.join(Rails.root, "public/#{error}.html"),
+           status: status, layout: false)
+  end
+
+  def redirect_to_role_route(user)
+    return info_path(user) if user.full_name?
+    return admin_home_path if user.admin_role?
+    employee_home_path if user.user_role?
   end
 
   private

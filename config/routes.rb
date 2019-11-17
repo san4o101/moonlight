@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   authenticated :user do
+
+    get '/users/:id', to: 'info#index', as: :info
+
     namespace :admin do
       get '/', to: 'home#index', as: :home
     end

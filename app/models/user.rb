@@ -16,4 +16,12 @@ class User < ApplicationRecord
     role == USER_ROLE
   end
 
+  def full_name?
+    first_name.nil? && last_name.nil?
+  end
+
+  def full_name
+    "#{last_name} #{first_name} #{second_name}"
+  end
+
 end
