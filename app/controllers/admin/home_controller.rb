@@ -2,7 +2,7 @@ module Admin
   class HomeController < AdminController
 
     def index
-      flash[:success] = 'Admin page!'
+      flash[:success] = t('controllers.admin.homePage')
       render :index
     end
 

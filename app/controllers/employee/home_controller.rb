@@ -2,7 +2,7 @@ module Employee
   class HomeController < EmployeeController
 
     def index
-      flash[:success] = 'Employee page!'
+      flash[:success] = t('controllers.employee.homePage')
       render :index
     end
 

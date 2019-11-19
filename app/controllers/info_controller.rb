@@ -10,7 +10,7 @@ class InfoController < ApplicationController
   def update
     if @current_user.update(user_params)
       redirect_to info_path(@current_user),
-                  notice: 'User was successfully updated.'
+                  notice: t('user.message.successUpdate')
     else
       render :index
     end
@@ -25,7 +25,7 @@ class InfoController < ApplicationController
 
   def its_me?
     unless InfoService.new.check_users(@current_user.id, session[:user_id])
-      flash[:warning] = 'Not see other users! Redirect to you profile!'
+      flash[:warning] = t('user.message.errorSeeOtherPage')
       redirect_to info_path(session[:user_id])
     end
   end
