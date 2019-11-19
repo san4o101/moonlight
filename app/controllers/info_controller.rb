@@ -4,8 +4,16 @@ class InfoController < ApplicationController
   layout :set_layout
 
   def index
-    flash[:success] = 'Enter you First, Last and Second Name'
     render :index
+  end
+
+  def update
+    if @current_user.update(user_params)
+      redirect_to info_path(@current_user),
+                  notice: 'User was successfully updated.'
+    else
+      render :index
+    end
   end
 
   private
@@ -24,6 +32,10 @@ class InfoController < ApplicationController
 
   def set_layout
     InfoService.new.change_layout(@current_user)
+  end
+
+  def user_params
+    params.require(:user).permit(:first_name, :last_name, :second_name)
   end
 
 end

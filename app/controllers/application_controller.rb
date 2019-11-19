@@ -1,15 +1,5 @@
 class ApplicationController < ActionController::Base
 
-  # TODO: testing this
-  # before_action :set_locale
-  # def set_locale
-  #   if current_user
-  #     I18n.locale = current_user.locale || I18n.default_locale
-  #   else
-  #     super
-  #   end
-  # end
-
   protect_from_forgery
   include Pundit
 

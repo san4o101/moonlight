@@ -5,7 +5,9 @@ Rails.application.routes.draw do
 
   authenticated :user do
 
-    get '/users/:id', to: 'info#index', as: :info
+    match 'users/:id', to: 'info#index', as: :info, via: [:get]
+    match 'users/:id', to: 'info#update', as: :info_update, via: [:patch]
+
 
     namespace :admin do
       get '/', to: 'home#index', as: :home
