@@ -1,10 +1,12 @@
 class EmployeeController < ApplicationController
 
-  before_action :authenticate_user!
+  before_action :employee_user!
 
   layout 'employee'
 
-  def authenticate_user!
+  private
+
+  def employee_user!
     render_error_page(403, :forbidden) unless pundit_user.user_role?
   end
 

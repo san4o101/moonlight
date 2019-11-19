@@ -40,4 +40,8 @@ class ApplicationController < ActionController::Base
     redirect_to(request.referrer || '/users/sign_in')
   end
 
+  def pundit_user
+    User.find(session[:user_id])
+  end
+
 end

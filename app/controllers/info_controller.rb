@@ -18,7 +18,7 @@ class InfoController < ApplicationController
   def its_me?
     unless InfoService.new.check_users(@current_user.id, session[:user_id])
       flash[:warning] = 'Not see other users! Redirect to you profile!'
-      redirect_to user_info_path(session[:user_id])
+      redirect_to info_path(session[:user_id])
     end
   end
 
