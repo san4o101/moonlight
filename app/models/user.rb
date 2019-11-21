@@ -1,3 +1,13 @@
+# frozen_string_literal: true
+
+# @class User
+# @extend ApplicationRecord
+# User model
+# @param integer id
+# @param string email
+# @param string first_name
+# @param string last_name
+# @param string second_name
 class User < ApplicationRecord
 
   ADMIN_ROLE = 1
