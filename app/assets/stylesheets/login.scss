@@ -1,5 +1,9 @@
 @import "bootstrap";
 
+.alert-alert {
+  @extend .alert-danger
+}
+
 html,
 body {
   height: 100%;
