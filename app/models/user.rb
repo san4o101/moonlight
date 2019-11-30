@@ -10,6 +10,12 @@
 # @param string second_name
 class User < ApplicationRecord
 
+  validates_each :first_name, :last_name, :second_name do |record, attr, value|
+    if value =~ /\A[а-яёїіє|a-z]/
+      record.errors.add(attr, 'must start with upper case')
+    end
+  end
+
   ADMIN_ROLE = 1
   USER_ROLE  = 2
 

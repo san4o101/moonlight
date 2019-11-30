@@ -9,3 +9,7 @@
 .alert-alert {
   @extend .alert-danger
 }
+
+.invalid-feedback {
+  display: block !important;
+}
