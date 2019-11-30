@@ -10,19 +10,22 @@
 # @param string second_name
 class User < ApplicationRecord
 
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable, :confirmable
+
+  ADMIN_ROLE = 1
+  USER_ROLE  = 2
+
+  scope :admins, -> { where(role: ADMIN_ROLE) }
+  scope :employees, -> { where(role: USER_ROLE) }
+
   validates_each :first_name, :last_name, :second_name do |record, attr, value|
     if value =~ /\A[а-яёїіє|a-z]/
       record.errors.add(attr, 'must start with upper case')
     end
   end
-
-  ADMIN_ROLE = 1
-  USER_ROLE  = 2
-
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :confirmable
 
   def admin_role?
     role == ADMIN_ROLE

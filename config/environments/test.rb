@@ -33,6 +33,21 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
+  config.action_mailer.default_url_options = { host: ENV['MAILER_HOST'],
+                                               port: ENV['MAILER_PORT'] }
+
+  config.action_mailer.delivery_method = :smtp
+
+  config.action_mailer.smtp_settings = {
+      address: 'smtp.gmail.com',
+      domain: 'gmail.com',
+      port: 587,
+      user_name: ENV['MAILER_USER'],
+      password: ENV['MAILER_PASSWORD'],
+      authentication: 'plain',
+      enable_starttls_auto: true
+  }
+
   # Tell Action Mailer not to deliver emails to the real world.
   # The :test delivery method accumulates sent emails in the
   # ActionMailer::Base.deliveries array.
