@@ -51,6 +51,13 @@ rails db:migrate
 rails s
 ```
 ### Tests
-coming soon...
+<b>Before use need install gem's:</b> <br>
+```
+bundle install
+```
+<b>Run all tests:</b>
+```
+rspec spec
+```
 ### Start app
 coming soon...
