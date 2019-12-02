@@ -50,7 +50,8 @@ class InfoController < ApplicationController
 
   # Get user params from request
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :second_name)
+    params.require(:user).permit(:first_name, :last_name, :second_name,
+                                 :birthday, :gender, :phone)
   end
 
 end

@@ -34,6 +34,46 @@
     <% end %>
   </div>
 
+  <div class="form-group">
+    <%= form.label :birthday %>
+    <%= datepicker(form, :birthday, user) %>
+    <% if user.errors[:birthday].any? %>
+      <span class="invalid-feedback">
+        <strong><%= user.errors.messages[:birthday][0] %></strong>
+      </span>
+    <% end %>
+  </div>
+
+  <div class="form-group">
+    <%= label :gender, 'Gender' %>
+    <div class="row d-flex justify-content-around">
+      <div class="form-check form-check-inline">
+        <%= form.radio_button :gender, User::GENDER_MALE, class: 'form-check-input' %>
+        <%= form.label :gender, 'Male', value: User::GENDER_MALE, class: 'form-check-label' %>
+      </div>
+      <div class="form-check form-check-inline">
+        <%= form.radio_button :gender, User::GENDER_FEMALE, class: 'form-check-input' %>
+        <%= form.label :gender, 'Female', value: User::GENDER_FEMALE, class: 'form-check-label' %>
+      </div>
+    </div>
+    <% if user.errors[:gender].any? %>
+      <span class="invalid-feedback">
+        <strong><%= user.errors.messages[:gender][0] %></strong>
+      </span>
+    <% end %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :phone %>
+    <%= form.number_field :phone, class: "form-control #{' is-invalid ' if user.errors[:phone].any? }",
+                        placeholder: '000000000' %>
+    <% if user.errors[:phone].any? %>
+      <span class="invalid-feedback">
+        <strong><%= user.errors.messages[:phone][0] %></strong>
+      </span>
+    <% end %>
+  </div>
+
   <div class="actions">
     <%= form.submit class: 'btn btn-success' %>
   </div>
