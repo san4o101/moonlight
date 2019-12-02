@@ -15,6 +15,7 @@ class ConfirmationsController < Devise::ConfirmationsController
   # @return redirect_to_user_route
   def after_confirmation_path_for(resource_name, resource)
     sign_in(resource)
+    resource.update(status: User::STATUS_ACTIVE)
     ApplicationController.redirect_to_role_route(resource)
   end
 
