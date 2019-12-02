@@ -8,6 +8,10 @@
 # @param string first_name
 # @param string last_name
 # @param string second_name
+# @param string status
+# @param integer phone
+# @param date birthday
+# @param integer gender
 class User < ApplicationRecord
 
   # Include default devise modules. Others available are:
@@ -17,6 +21,14 @@ class User < ApplicationRecord
 
   ADMIN_ROLE = 1
   USER_ROLE  = 2
+
+  STATUS_ACTIVE   = 'active'
+  STATUS_DISABLE  = 'disable'
+  STATUS_DELETE   = 'delete'
+  STATUS_BLOCKED  = 'blocked'
+
+  GENDER_MALE   = 1
+  GENDER_FEMALE = 2
 
   scope :admins, -> { where(role: ADMIN_ROLE) }
   scope :employees, -> { where(role: USER_ROLE) }
