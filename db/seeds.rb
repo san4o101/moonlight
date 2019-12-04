@@ -1,11 +1,26 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+require 'csv'
 
 User.create(email: 'admin@moonlight.com', first_name: 'Admin',
-            last_name: 'Admin', password: 'secret', role: 1,
+            last_name: 'Admin', password: 'secret', role: User::ADMIN_ROLE,
             confirmed_at: '2019-11-01 00:01:00')
+
+# Add Countries
+CSV.foreach(Rails.root.join('lib/csv/country.csv'), headers: true) do |row|
+  Country.create({
+                     short_code: row[0],
+                     nickname: row[1],
+                     name: row[2],
+                     phone_code: row[3]
+                 })
+end
+
+# Add Cities
+CSV.foreach(Rails.root.join('lib/csv/cities.csv'), headers: true) do |row|
+  if (country = Country.find_by(short_code: row[2]))
+    country_id = country.id
+    City.create({
+                    name: row[0],
+                    country_id: country_id
+                })
+  end
+end
