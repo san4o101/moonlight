@@ -8,7 +8,7 @@ class InfoService
   # @param user
   # @return string
   def change_layout(user)
-    'admin' if user.admin_role?
+    return 'admin' if user.admin_role?
     'employee' if user.user_role?
   end
 
