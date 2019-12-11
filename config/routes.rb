@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
     match 'users/:id', to: 'info#index', as: :info, via: [:get]
     match 'users/:id', to: 'info#update', as: :info_update, via: [:patch]
+    post '/autocomplete_city', to: 'autocomplete#autocomplete_city', as: :autocomplete_city
 
 
     namespace :admin do

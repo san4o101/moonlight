@@ -15,6 +15,7 @@ class InfoController < ApplicationController
 
   # Update user information
   def update
+    p user_params
     if @current_user.update(user_params)
       redirect_to info_path(@current_user),
                   notice: t('user.message.successUpdate')
@@ -51,7 +52,7 @@ class InfoController < ApplicationController
   # Get user params from request
   def user_params
     params.require(:user).permit(:first_name, :last_name, :second_name,
-                                 :birthday, :gender, :phone)
+                                 :birthday, :gender, :phone, :cities_id)
   end
 
 end

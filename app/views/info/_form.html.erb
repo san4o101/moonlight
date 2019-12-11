@@ -64,9 +64,26 @@
   </div>
 
   <div class="form-group">
+    <%= form.label :city %>
+    <%= form.hidden_field :cities_id %>
+    <%= form.text_field :city, class: "form-control #{' is-invalid ' if user.errors[:city].any? }",
+        value: user.city.present? ? user.city.name : ''%>
+    <% if user.errors[:city].any? %>
+      <span class="invalid-feedback">
+        <strong><%= user.errors.messages[:city][0] %></strong>
+      </span>
+    <% end %>
+  </div>
+
+  <div class="form-group">
     <%= form.label :phone %>
-    <%= form.number_field :phone, class: "form-control #{' is-invalid ' if user.errors[:phone].any? }",
-                        placeholder: '000000000' %>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-phone_number">+<%= user.city.present? ? user.city.country.phone_code : '' %></span>
+      </div>
+      <%= form.number_field :phone, class: "form-control #{' is-invalid ' if user.errors[:phone].any? }",
+                            placeholder: '000000000' %>
+    </div>
     <% if user.errors[:phone].any? %>
       <span class="invalid-feedback">
         <strong><%= user.errors.messages[:phone][0] %></strong>
