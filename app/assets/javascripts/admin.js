@@ -17,6 +17,7 @@ $(document).ready(function(){
     let user_city = $('#user_city');
     let user_city_id = $('#user_cities_id');
     let basic_phone_number = $('#basic-phone_number');
+    let phone_group__div = $('.phone-group__div');
 
     user_city.autocomplete({
         source: function (request, response) {
@@ -44,6 +45,7 @@ $(document).ready(function(){
         select: function( event, suggestions ) {
             user_city_id.val(suggestions.item.id);
             basic_phone_number.text('+' + suggestions.item.phone_code);
+            phone_group__div.removeClass('d-none');
         }
     }).data( "ui-autocomplete" )._renderItem = function( ul, item ) {
         return $( "<li></li>" )

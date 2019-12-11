@@ -75,7 +75,7 @@
     <% end %>
   </div>
 
-  <div class="form-group">
+  <div class="form-group phone-group__div <%= user.city.present? ? '' : 'd-none' %>">
     <%= form.label :phone %>
     <div class="input-group mb-3">
       <div class="input-group-prepend">
