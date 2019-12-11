@@ -5,7 +5,8 @@
 # User information show and update
 class InfoController < ApplicationController
 
-  before_action :set_user, :its_me?
+  before_action :set_user
+  before_action :its_me?, unless: :user_admin
   layout :set_layout
 
   # Show user information
@@ -46,7 +47,7 @@ class InfoController < ApplicationController
   # If user employee  -> layout 'employee'
   # @return string
   def set_layout
-    InfoService.new.change_layout(@current_user)
+    InfoService.new.change_layout(pundit_user)
   end
 
   # Get user params from request

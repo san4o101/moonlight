@@ -61,4 +61,8 @@ class ApplicationController < ActionController::Base
     User.find(session[:user_id])
   end
 
+  def user_admin
+    pundit_user.admin_role?
+  end
+
 end
