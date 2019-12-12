@@ -1,0 +1,12 @@
+<%= render('admin/settings/nav') %>
+
+<div class="card">
+  <div class="card-header">
+    Create country
+  </div>
+  <div class="card-body">
+    <%= render 'form', country: @country, model_url: new_admin_settings_country_path(@country) %>
+
+    <%= link_to 'Back', admin_settings_countries_path, class: 'btn btn-secondary' %>
+  </div>
+</div>

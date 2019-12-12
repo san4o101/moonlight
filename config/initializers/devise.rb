@@ -84,7 +84,7 @@ Devise.setup do |config|
   # config.paranoid = true
 
   # By default Devise will store the users in session. You can skip storage for
-  # particular strategies by setting this option.
+  # particular strategies by settings this option.
   # Notice that if you are skipping storage for all authentication paths, you
   # may want to disable generating routes to Devise's sessions controller by
   # passing skip: :sessions to `devise_for` in your config/routes.rb
@@ -257,7 +257,7 @@ Devise.setup do |config|
   config.sign_out_via = :delete
 
   # ==> OmniAuth
-  # Add a new OmniAuth provider. Check the wiki for more information on setting
+  # Add a new OmniAuth provider. Check the wiki for more information on settings
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'users,public_repo'
 

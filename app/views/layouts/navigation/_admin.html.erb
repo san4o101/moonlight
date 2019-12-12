@@ -6,7 +6,7 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav mr-auto">
       <%= render('layouts/navigation/user_info') %>
     </ul>
@@ -19,6 +19,7 @@
             <%= pundit_user.full_name %>
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <%= link_to t('action.settings'), admin_settings_countries_path, method: :get, class: 'dropdown-item' %>
             <%= link_to t('action.logOut'), destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
           </div>
         </li>

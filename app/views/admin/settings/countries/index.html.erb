@@ -1,0 +1,31 @@
+<%= render('admin/settings/nav') %>
+
+<p id="notice"><%= notice %></p>
+
+<%= link_to 'New Country', new_admin_settings_country_path, class: 'btn btn-success mt-3 mb-3' %>
+
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Short code</th>
+      <th>Phone code</th>
+      <th>Nickname</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @countries.each do |country_var| %>
+      <tr>
+        <td><%= country_var.name %></td>
+        <td><%= country_var.short_code %></td>
+        <td><%= country_var.phone_code %></td>
+        <td><%= country_var.nickname %></td>
+        <td><%= link_to 'Show', admin_settings_country_path(country_var) %></td>
+        <td><%= link_to 'Edit', edit_admin_settings_country_path(country_var) %></td>
+        <td><%= link_to 'Destroy', admin_settings_country_path(country_var), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

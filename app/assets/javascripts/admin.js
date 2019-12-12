@@ -11,3 +11,6 @@
 // about supported directives.
 //
 //= require application
+
+$(function () {
+});

@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  resources :cities
-  resources :countries
   devise_for :users, controllers: { confirmations: 'confirmations',
                                     registrations: 'registrations' }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -14,6 +12,10 @@ Rails.application.routes.draw do
 
     namespace :admin do
       get '/', to: 'home#index', as: :home
+      namespace :settings do
+        resources :cities
+        resources :countries
+      end
     end
 
     namespace :employee do
