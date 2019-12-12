@@ -7,7 +7,7 @@ module Admin
       # GET /countries
       # GET /countries.json
       def index
-        @countries = Country.page(params[:page])
+        @countries = Country.order(:name).page(params[:page])
       end
 
       # GET /countries/1
