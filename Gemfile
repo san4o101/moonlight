@@ -76,3 +76,5 @@ gem 'jquery-rails'
 gem 'devise'
 # Pundit
 gem 'pundit'
+# Pagination
+gem 'kaminari'

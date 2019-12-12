@@ -6,7 +6,7 @@ module Admin
       # GET /cities
       # GET /cities.json
       def index
-        @cities = City.all
+        @cities = City.page(params[:page])
       end
 
       # GET /cities/1

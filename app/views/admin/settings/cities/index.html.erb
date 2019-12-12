@@ -1,6 +1,6 @@
 <%= render('admin/settings/nav') %>
 
-<%= link_to 'New City', new_admin_settings_city_path, class: 'btn btn-primary mb-3' %>
+<%= link_to 'New City', new_admin_settings_city_path, class: 'btn btn-success mb-3' %>
 
 <table class="table table-striped table-bordered">
   <thead>
@@ -23,3 +23,7 @@
     <% end %>
   </tbody>
 </table>
+
+<div class="d-flex justify-content-center">
+  <%= paginate @cities %>
+</div>
