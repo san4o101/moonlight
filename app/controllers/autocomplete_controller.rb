@@ -11,7 +11,7 @@ class AutocompleteController < ApplicationController
                .select('countries.phone_code, countries.name as country_name,
                         cities.country_id, cities.id, cities.name')
                .limit(10)
-    render :json => {city: city}
+    render json: { city: city }
   end
 
 end
