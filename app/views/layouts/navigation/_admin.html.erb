@@ -19,8 +19,12 @@
             <%= pundit_user.full_name %>
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <%= link_to t('action.settings'), admin_settings_countries_path, method: :get, class: 'dropdown-item' %>
-            <%= link_to t('action.logOut'), destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
+            <%= link_to admin_settings_countries_path, method: :get, class: 'dropdown-item' do %>
+              <i class="fa fa-cog"></i> <%= t('action.settings') %>
+            <% end %>
+            <%= link_to destroy_user_session_path, method: :delete, class: 'dropdown-item' do %>
+              <i class="fa fa-sign-out"></i> <%= t('action.logOut') %>
+            <% end %>
           </div>
         </li>
       <% end %>
