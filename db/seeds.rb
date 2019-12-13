@@ -4,7 +4,7 @@ require 'csv'
 
 User.create(email: 'admin@moonlight.com', first_name: 'Admin',
             last_name: 'Admin', password: 'secret', role: User::ADMIN_ROLE,
-            confirmed_at: '2019-11-01 00:01:00', birthday: '1998-10-06')
+            confirmed_at: '2019-11-01 00:01:00')
 
 # Add Countries
 CSV.foreach(Rails.root.join('lib/csv/country.csv'), headers: true) do |row|
