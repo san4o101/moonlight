@@ -40,7 +40,6 @@ class User < ApplicationRecord
       record.errors.add(attr, 'must start with upper case')
     end
   end
-  validate :valid_date?
   validates :phone, numericality: { only_integer: true },
                     length: { is: 9 },
                     allow_blank: true
@@ -62,11 +61,5 @@ class User < ApplicationRecord
   end
 
   private
-
-  def valid_date?
-    Date.parse(birthday.to_s)
-  rescue ArgumentError
-    false
-  end
 
 end
