@@ -11,8 +11,7 @@ module Admin
 
       # GET /cities/1
       # GET /cities/1.json
-      def show
-      end
+      def show; end
 
       # GET /cities/new
       def new
@@ -20,8 +19,7 @@ module Admin
       end
 
       # GET /cities/1/edit
-      def edit
-      end
+      def edit; end
 
       # POST /cities
       # POST /cities.json
@@ -30,8 +28,14 @@ module Admin
 
         respond_to do |format|
           if @city.save
-            format.html { redirect_to @city, notice: 'City was successfully created.' }
-            format.json { render :show, status: :created, location: @city }
+            format.html do
+              redirect_to admin_settings_city_path(@city),
+                          notice: t('city.successCreate')
+            end
+            format.json do
+              render :show, status: :created,
+                            location: admin_settings_city_path(@city)
+            end
           else
             format.html { render :new }
             format.json { render json: @city.errors, status: :unprocessable_entity }
@@ -44,8 +48,14 @@ module Admin
       def update
         respond_to do |format|
           if @city.update(city_params)
-            format.html { redirect_to @city, notice: 'City was successfully updated.' }
-            format.json { render :show, status: :ok, location: @city }
+            format.html do
+              redirect_to admin_settings_city_path(@city),
+                          notice: t('city.successUpdate')
+            end
+            format.json do
+              render :show, status: :ok,
+                            location: admin_settings_city_path(@city)
+            end
           else
             format.html { render :edit }
             format.json { render json: @city.errors, status: :unprocessable_entity }
@@ -58,7 +68,10 @@ module Admin
       def destroy
         @city.destroy
         respond_to do |format|
-          format.html { redirect_to cities_url, notice: 'City was successfully destroyed.' }
+          format.html do
+            redirect_to admin_settings_cities_url,
+                        notice: t('city.successDestroy')
+          end
           format.json { head :no_content }
         end
       end

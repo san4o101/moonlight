@@ -22,3 +22,11 @@ en:
     signIn: "Sign In"
     logOut: "Log Out"
     settings: "Settings"
+  city:
+    successCreate: 'City was successfully created.'
+    successUpdate: 'City was successfully updated.'
+    successDestroy: 'City was successfully destroyed.'
+  country:
+    successCreate: 'Country was successfully created.'
+    successUpdate: 'Country was successfully updated.'
+    successDestroy: 'Country was successfully destroyed.'

@@ -31,8 +31,14 @@ module Admin
 
         respond_to do |format|
           if @country.save
-            format.html { redirect_to admin_settings_country_path(@country), notice: 'Country was successfully created.' }
-            format.json { render :show, status: :created, location: admin_settings_country_path(@country) }
+            format.html do
+              redirect_to admin_settings_country_path(@country),
+                          notice: t('country.successCreate')
+            end
+            format.json do
+              render :show, status: :created,
+                     location: admin_settings_country_path(@country)
+            end
           else
             format.html { render :new }
             format.json { render json: @country.errors, status: :unprocessable_entity }
@@ -45,8 +51,14 @@ module Admin
       def update
         respond_to do |format|
           if @country.update(country_params)
-            format.html { redirect_to admin_settings_country_path(@country), notice: 'Country was successfully updated.' }
-            format.json { render :show, status: :ok, location: admin_settings_contry_path(@country) }
+            format.html do
+              redirect_to admin_settings_country_path(@country),
+                          notice: t('country.successUpdate')
+            end
+            format.json do
+              render :show, status: :ok,
+                     location: admin_settings_contry_path(@country)
+            end
           else
             format.html { render :edit }
             format.json { render json: @country.errors, status: :unprocessable_entity }
@@ -59,7 +71,10 @@ module Admin
       def destroy
         @country.destroy
         respond_to do |format|
-          format.html { redirect_to admin_settings_contries_path, notice: 'Country was successfully destroyed.' }
+          format.html do
+            redirect_to admin_settings_contries_path,
+                        notice: t('country.successDestroy')
+          end
           format.json { head :no_content }
         end
       end
@@ -72,7 +87,8 @@ module Admin
 
       # Never trust parameters from the scary internet, only allow the white list through.
       def country_params
-        params.require(:country).permit(:name, :short_code, :phone_code, :nickname)
+        params.require(:country).permit(:name, :short_code, :phone_code,
+                                        :nickname)
       end
     end
 
