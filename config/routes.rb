@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       namespace :settings do
         resources :cities
         resources :countries
+        resources :users, except: %i[new create]
       end
     end
 

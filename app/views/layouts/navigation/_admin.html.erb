@@ -19,7 +19,7 @@
             <%= pundit_user.full_name %>
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <%= link_to admin_settings_countries_path, method: :get, class: 'dropdown-item' do %>
+            <%= link_to admin_settings_users_path, method: :get, class: 'dropdown-item' do %>
               <i class="fa fa-cog"></i> <%= t('action.settings') %>
             <% end %>
             <%= link_to destroy_user_session_path, method: :delete, class: 'dropdown-item' do %>

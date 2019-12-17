@@ -1,0 +1,5 @@
+<% if user.admin_role? %>
+  <span class="badge badge-success">Admin</span>
+<% elsif user.user_role? %>
+  <span class="badge badge-primary">User</span>
+<% end %>

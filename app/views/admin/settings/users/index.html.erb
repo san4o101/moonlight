@@ -1,0 +1,32 @@
+<%= render('admin/settings/nav') %>
+
+<%#= link_to 'New User', new_admin_settings_user_path, class: 'btn btn-success mb-3' %>
+
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>Full name</th>
+      <th>Email</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td>
+          <%= user.full_name %>
+          <%= render 'partials/user_status', user: user %>
+        </td>
+        <td><%= user.email %></td>
+        <td><%= link_to 'Show', admin_settings_user_path(user) %></td>
+        <td><%= link_to 'Edit', edit_admin_settings_user_path(user) %></td>
+        <td><%= link_to 'Destroy', admin_settings_user_path(user), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="d-flex justify-content-center">
+  <%= paginate @users %>
+</div>

@@ -61,6 +61,11 @@ class User < ApplicationRecord
     "#{last_name} #{first_name} #{second_name}"
   end
 
+  def gender_name
+    return 'Male' if gender == GENDER_MALE
+    'Female' if gender == GENDER_FEMALE
+  end
+
   private
 
 end
