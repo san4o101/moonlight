@@ -1,5 +1,8 @@
 <img src="public/images/moon_logo.svg" alt="Logotype" height="80px" width="80px">
+<br>
 
+[![Build Status](https://travis-ci.org/san4o101/moonlight.svg?branch=master)](https://travis-ci.org/san4o101/moonlight)
+[![License](http://img.shields.io/:license-mit-blue.svg)](http://badges.mit-license.org)
 # MOONLIGHT SYSTEM
 
 ### Info
