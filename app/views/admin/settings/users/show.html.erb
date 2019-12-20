@@ -1,5 +1,7 @@
 <%= render('admin/settings/nav') %>
 
+<%= link_to 'Change password', admin_settings_user_password_path(@user), class: 'btn btn-success mb-3' %>
+
 <div class="card">
   <div class="card-header">
     <strong><%= @user.full_name %></strong>
@@ -29,6 +31,8 @@
     </p>
 
     <%= link_to 'Edit', edit_admin_settings_user_path(@user), class: 'btn btn-primary' %> |
+    <%= link_to 'Destroy', admin_settings_user_path(@user), method: :delete, data: { confirm: 'Are you sure?' },
+                class: 'btn btn-danger'%> |
     <%= link_to 'Back', admin_settings_users_path, class: 'btn btn-secondary' %>
   </div>
 </div>

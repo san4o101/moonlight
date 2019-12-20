@@ -22,6 +22,10 @@
 //= require bootstrap-datepicker/locales/bootstrap-datepicker.uk.js
 //= require_tree .
 
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+});
+
 $(document).ready(function(){
     let CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
     let user_city = $('#user_city');
@@ -56,12 +60,20 @@ $(document).ready(function(){
             user_city_id.val(suggestions.item.id);
             basic_phone_number.text('+' + suggestions.item.phone_code);
             phone_group__div.removeClass('d-none');
+        },
+        create: function () {
+            $(this).data( "ui-autocomplete" )._renderItem = function( ul, item ) {
+                return $( "<li></li>" )
+                    .data( "item.autocomplete", item )
+                    .append(item.label)
+                    .appendTo( ul );
+            };
         }
-    }).data( "ui-autocomplete" )._renderItem = function( ul, item ) {
-        return $( "<li></li>" )
-            .data( "item.autocomplete", item )
-            .append(item.label)
-            .appendTo( ul );
-    };
+    });
+
+    $(".active_table__tr").on('click', function (e) {
+        window.location = $(this).data('location');
+        return true;
+    });
 
 });

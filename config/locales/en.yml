@@ -19,6 +19,7 @@ en:
       successCreate: 'User was successfully created.'
       successDestroy: 'User was successfully destroyed.'
       errorSeeOtherPage: "Not see other users! Redirect to you profile!"
+      successUpdatePassword: 'user was successfully update password!'
   action:
     logIn: "Log In"
     signIn: "Sign In"

@@ -7,21 +7,18 @@
     <tr>
       <th>Full name</th>
       <th>Email</th>
-      <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @users.each do |user| %>
-      <tr>
+      <tr class="active_table__tr" data-location="<%= admin_settings_user_path(user) %>"
+          data-toggle="tooltip" data-placement="bottom" title="Show user">
         <td>
           <%= user.full_name %>
           <%= render 'partials/user_status', user: user %>
         </td>
         <td><%= user.email %></td>
-        <td><%= link_to 'Show', admin_settings_user_path(user) %></td>
-        <td><%= link_to 'Edit', edit_admin_settings_user_path(user) %></td>
-        <td><%= link_to 'Destroy', admin_settings_user_path(user), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

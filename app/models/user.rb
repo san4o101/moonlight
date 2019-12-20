@@ -44,6 +44,7 @@ class User < ApplicationRecord
   validates :phone, numericality: { only_integer: true },
                     length: { is: 9 },
                     allow_blank: true
+  validates :password, confirmation: true
 
   def admin_role?
     role == ADMIN_ROLE

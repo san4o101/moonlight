@@ -17,6 +17,8 @@ Rails.application.routes.draw do
         resources :cities
         resources :countries
         resources :users, except: %i[new create]
+        get '/users/:id/password', to: 'users#password', as: :user_password
+        patch '/users/:id/password', to: 'users#password_change', as: :user_change_password
       end
     end
 

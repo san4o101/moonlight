@@ -1,0 +1,56 @@
+@import 'bootstrap';
+@import 'bootstrap-datepicker3';
+@import "font-awesome";
+@import "cursors";
+
+
+.alert-notice {
+  color: #4e4b57;
+  background-color: #cacae4;
+  border-color: #dfe1e6;
+}
+.alert-alert {
+  @extend .alert-danger
+}
+
+.invalid-feedback {
+  display: block !important;
+}
+
+.active_table__tr {
+  cursor: pointer;
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.15) !important;
+  }
+}
+
+ul.ui-autocomplete {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  float: left;
+  display: none;
+  min-width: 160px;
+  margin: 0 0 10px 25px;
+  list-style: none;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-color: rgba(0, 0, 0, 0.2);
+  *border-right-width: 2px;
+  *border-bottom-width: 2px;
+
+  li.ui-menu-item{
+    padding:0 .5em;
+    line-height:2em;
+    font-size:.9em;
+    &.ui-state-focus{
+      background: #F7F7F7;
+    }
+  }
+  .ui-menu-item:hover{
+    background: #6693bc !important;
+    font-weight: bold !important;
+    color: #ffffff !important;
+  }
+}

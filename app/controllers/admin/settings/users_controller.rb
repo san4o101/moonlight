@@ -1,28 +1,28 @@
 module Admin
   module Settings
     class UsersController < AdminController
-      before_action :set_user, only: %i[show edit update destroy]
+      before_action :set_user, only: %i[show edit update destroy password password_change]
 
-      # GET /cities
-      # GET /cities.json
+      # GET /users
+      # GET /users.json
       def index
         @users = User.order(:id).page(params[:page])
       end
 
-      # GET /cities/1
-      # GET /cities/1.json
+      # GET /users/1
+      # GET /users/1.json
       def show; end
 
-      # GET /cities/new
+      # GET /users/new
       #def new
       #  @user = User.new
       #end
 
-      # GET /cities/1/edit
+      # GET /users/1/edit
       def edit; end
 
-      # POST /cities
-      # POST /cities.json
+      # POST /users
+      # POST /users.json
       #def create
       #  @user = User.new(user_params)
       #
@@ -43,8 +43,8 @@ module Admin
       #  end
       #end
 
-      # PATCH/PUT /cities/1
-      # PATCH/PUT /cities/1.json
+      # PATCH/PUT /users/1
+      # PATCH/PUT /users/1.json
       def update
         respond_to do |format|
           if @user.update(user_params)
@@ -63,8 +63,8 @@ module Admin
         end
       end
 
-      # DELETE /cities/1
-      # DELETE /cities/1.json
+      # DELETE /users/1
+      # DELETE /users/1.json
       def destroy
         @user.destroy
         respond_to do |format|
@@ -73,6 +73,25 @@ module Admin
                         notice: t('user.message.successDestroy')
           end
           format.json { head :no_content }
+        end
+      end
+
+      # GET /users/1/password
+      def password; end
+
+      # POST /users/1/password
+      def password_change
+        if @user.update(password_params)
+          if InfoService.new.check_users(@user.id, session[:user_id])
+            flash[:warning] = "Enter you new password"
+            session.clear
+            redirect_to root_path
+          else
+            flash[:success] = "Password updated!"
+            redirect_to admin_settings_user_path(@user)
+          end
+        else
+          render 'admin/settings/users/password'
         end
       end
 
@@ -87,6 +106,10 @@ module Admin
         params.require(:user).permit(:first_name, :last_name, :second_name,
                                      :birthday, :gender, :role, :cities_id,
                                      :phone)
+      end
+
+      def password_params
+        params.require(:user).permit(:password, :password_confirmation)
       end
     end
   end
