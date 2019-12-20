@@ -3,8 +3,7 @@ require 'rails_helper'
 RSpec.describe "bills/index", type: :view do
   before(:each) do
     assign(:bills, [
-      Bill.create!(),
-      Bill.create!()
+        FactoryBot.create_list(:bill, 2)
     ])
   end
 

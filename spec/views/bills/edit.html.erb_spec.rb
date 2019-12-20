@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "bills/edit", type: :view do
   before(:each) do
-    @bill = assign(:bill, Bill.create!())
+    @bill = assign(:bill, FactoryBot.create(:bill))
   end
 
   it "renders the edit bill form" do

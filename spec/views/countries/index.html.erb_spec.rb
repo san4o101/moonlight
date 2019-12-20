@@ -3,18 +3,7 @@ require 'rails_helper'
 RSpec.describe "countries/index", type: :view do
   before(:each) do
     assign(:countries, [
-      Country.create!(
-        :name => "Name",
-        :short_code => "Short Code",
-        :phone_code => "Phone Code",
-        :nickname => "Nickname"
-      ),
-      Country.create!(
-        :name => "Name",
-        :short_code => "Short Code",
-        :phone_code => "Phone Code",
-        :nickname => "Nickname"
-      )
+        FactoryBot.create_list(:country, 2)
     ])
   end
 

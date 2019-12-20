@@ -23,7 +23,7 @@ require 'rails_helper'
 # removed from Rails core in Rails 5, but can be added back in via the
 # `rails-controller-testing` gem.
 
-RSpec.describe CountriesController, type: :controller do
+RSpec.describe Admin::Settings, type: :controller do
 
   # This should return the minimal set of attributes required to create a valid
   # Country. As you add validations to Country, be sure to
