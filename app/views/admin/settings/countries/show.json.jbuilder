@@ -1,1 +1,1 @@
-json.partial! "countries/country", country: @country
+json.partial! 'admin/settings/countries/country', country: @country

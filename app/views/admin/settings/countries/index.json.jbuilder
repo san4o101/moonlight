@@ -1,1 +1,2 @@
-json.array! @countries, partial: "countries/country", as: :country
+json.array! @countries, partial: 'admin/settings/countries/country',
+                        as: :country

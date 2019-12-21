@@ -1,1 +1,1 @@
-json.partial! "cities/city", city: @city
+json.partial! 'admin/settings/cities/city', city: @city
