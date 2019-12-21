@@ -20,13 +20,10 @@
 //= require bootstrap
 //= require bootstrap-datepicker/core
 //= require bootstrap-datepicker/locales/bootstrap-datepicker.uk.js
-//= require_tree .
 
-$(function () {
-    $('[data-toggle="tooltip"]').tooltip()
-});
+$(document).on('turbolinks:load', function() {
+    $('[data-toggle="tooltip"]').tooltip();
 
-$(document).ready(function(){
     let CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
     let user_city = $('#user_city');
     let user_city_id = $('#user_cities_id');
