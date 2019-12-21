@@ -1,5 +1,5 @@
 
-<%#= link_to 'New User', new_admin_settings_user_path, class: 'btn btn-success mb-3' %>
+<%#= link_to 'New User', new_admin_user_path, class: 'btn btn-success mb-3' %>
 
 <table class="table table-striped table-bordered">
   <thead>
@@ -11,7 +11,7 @@
 
   <tbody>
     <% @users.each do |user| %>
-      <tr class="active_table__tr" data-location="<%= admin_settings_user_path(user) %>"
+      <tr class="active_table__tr" data-location="<%= admin_user_path(user) %>"
           data-toggle="tooltip" data-placement="bottom" title="Show user">
         <td>
           <%= user.full_name %>

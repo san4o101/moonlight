@@ -13,12 +13,15 @@ Rails.application.routes.draw do
 
     namespace :admin do
       get '/', to: 'home#index', as: :home
+
+      resources :users, except: %i[new create]
+      get '/users/:id/password', to: 'users#password', as: :user_password
+      patch '/users/:id/password', to: 'users#password_change',
+                                   as: :user_change_password
+
       namespace :settings do
         resources :cities
         resources :countries
-        resources :users, except: %i[new create]
-        get '/users/:id/password', to: 'users#password', as: :user_password
-        patch '/users/:id/password', to: 'users#password_change', as: :user_change_password
       end
     end
 
