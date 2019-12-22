@@ -18,5 +18,9 @@ class EmployeeController < ApplicationController
     render_error_page(403, :forbidden) unless pundit_user.user_role?
   end
 
+  def set_user
+    @current_user = User.find(session[:user_id])
+  end
+
 end
 

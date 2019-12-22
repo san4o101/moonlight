@@ -1,0 +1,16 @@
+<%= link_to 'New Bill', new_employee_bill_path, class: 'btn btn-success mb-3' %>
+
+<div class="card-body d-flex justify-content-start">
+  <% @bills.each do |bill| %>
+    <div class="card card-width shadow-sm rounded">
+      <div class="card-body">
+        <p class="m-0">
+          Card number: <%= bill.id %> <br>
+          Amount: <%= bill.amount %> <br>
+          Amount Limit: <%= bill.amount_limit %> <br>
+          Expired: <%= bill.expired_bill_at %>
+        </p>
+      </div>
+    </div>
+  <% end %>
+</div>

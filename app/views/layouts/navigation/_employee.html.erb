@@ -9,6 +9,12 @@
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav mr-auto">
       <%= render('layouts/navigation/user_info') %>
+      <li class="nav-item">
+        <a class="nav-link <%= current_page?(employee_bills_path) ? ' active ' : '' %>"
+           href="<%= employee_bills_path %>">
+          <%= t('user.field.bills') %>
+        </a>
+      </li>
     </ul>
   </div>
   <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">

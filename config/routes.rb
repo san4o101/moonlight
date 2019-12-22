@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :bills
   devise_for :users, controllers: { confirmations: 'confirmations',
                                     registrations: 'registrations' }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -27,6 +26,7 @@ Rails.application.routes.draw do
 
     namespace :employee do
       get '/', to: 'home#index', as: :home
+      resources :bills, only: %i[index new create destroy]
     end
   end
 

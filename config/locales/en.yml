@@ -12,6 +12,7 @@ en:
       id: "ID"
       myInfo: "My info"
       users: "Users"
+      bills: "My bills"
     action:
       confirmEmail: "Confirm you Email!"
     message:
@@ -21,6 +22,9 @@ en:
       successDestroy: 'User was successfully destroyed.'
       errorSeeOtherPage: "Not see other users! Redirect to you profile!"
       successUpdatePassword: 'user was successfully update password!'
+      successCreateBill: 'Bill was successfully created.'
+      successUpdateBill: 'Bill was successfully updated.'
+      successDestroyBill: 'Bill was successfully destroyed.'
   action:
     logIn: "Log In"
     signIn: "Sign In"
