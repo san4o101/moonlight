@@ -2,7 +2,7 @@
 
 <div class="card-body d-flex justify-content-start">
   <% @bills.each do |bill| %>
-    <div class="card card-width shadow-sm rounded">
+    <div class="card card-width shadow rounded <%= bill.credit? ? 'credit' : 'deposit' %>-card">
       <div class="card-body">
         <p class="m-0">
           Card number: <%= bill.id %> <br>

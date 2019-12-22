@@ -6,4 +6,12 @@ class Bill < ApplicationRecord
 
   scope :my_bills, ->(users_id) { where(users_id: users_id) }
 
+  def credit?
+    bill_type == CREDIT_TYPE
+  end
+
+  def deposit?
+    bill_type == DEPOSIT_TYPE
+  end
+
 end
