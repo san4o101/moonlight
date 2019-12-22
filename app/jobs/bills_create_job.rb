@@ -10,6 +10,6 @@ class BillsCreateJob < ApplicationJob
   end
 
   def generate_number
-    Array.new(4) { rand.to_s[2..5] }
+    Array.new(4) { rand.to_s[2..5] }.join
   end
 end
