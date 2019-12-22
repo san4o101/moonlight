@@ -6,7 +6,7 @@
       <div class="card__face card--front">
         <img src="/images/moon_logo.svg" width="25" height="25" class="d-inline-block align-top card-image" alt="">
         <div class="card-body text-center">
-          <span class="card-number"><%= bill.id %></span> <br>
+          <span class="card-number"><%= card_number_format(bill.card_number) %></span> <br>
           <span class="card-date"><%= card_date_expired(bill.expired_bill_at) %></span>
         </div>
       </div>

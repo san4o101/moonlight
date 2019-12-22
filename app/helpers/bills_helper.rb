@@ -4,4 +4,8 @@ module BillsHelper
     date.strftime('%m/%Y') if date.present?
   end
 
+  def card_number_format(card_number)
+    card_number.scan(/.{1,4}/).join(' ')
+  end
+
 end
