@@ -16,6 +16,7 @@ class ConfirmationsController < Devise::ConfirmationsController
   def after_confirmation_path_for(resource_name, resource)
     sign_in(resource)
     resource.update(status: User::STATUS_ACTIVE)
+    BillsCreateJob.perform_later(resource)
     ApplicationController.redirect_to_role_route(resource)
   end
 
