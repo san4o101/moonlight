@@ -2,23 +2,7 @@
 @import 'bootstrap-datepicker3';
 @import "font-awesome";
 @import "cursors";
-
-.deposit-card {
-  color: #fff;
-  -webkit-text-stroke: 0.3px #000;
-  font-weight: bold;
-  background-color: #2f3b4b;
-  background: -moz-radial-gradient(center 45deg, circle closest-corner, #2f3b4b 0%, #3e4f63 100%);
-  background: -webkit-gradient(radial, center center, 10, center center, 900, from(#2f3b4b), to(#3e4f63));
-}
-.credit-card {
-  color: #fff;
-  -webkit-text-stroke: 0.3px #000;
-  font-weight: bold;
-  background-color: #664246;
-  background: -moz-radial-gradient(center 45deg, circle closest-corner, #432b2f 0%, #8a5b5f 100%);
-  background: -webkit-gradient(radial, center center, 10, center center, 900, from(#432b2f), to(#8a5b5f));
-  }
+@import "card";
 
 .alert-notice {
   color: #4e4b57;
@@ -69,11 +53,4 @@ ul.ui-autocomplete {
     font-weight: bold !important;
     color: #ffffff !important;
   }
-}
-
-.card-width {
-  width: 18rem;
-  max-width: 18rem;
-  display: flex;
-  margin-right: 10px;
 }

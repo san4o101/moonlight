@@ -29,6 +29,7 @@ $(document).on('turbolinks:load', function() {
     let user_city_id = $('#user_cities_id');
     let basic_phone_number = $('#basic-phone_number');
     let phone_group__div = $('.phone-group__div');
+    let card = $('.card-width');
 
     user_city.autocomplete({
         source: function (request, response) {
@@ -71,6 +72,10 @@ $(document).on('turbolinks:load', function() {
     $(".active_table__tr").on('click', function (e) {
         window.location = $(this).data('location');
         return true;
+    });
+
+    card.on('click', function() {
+        $(this).toggleClass('is-flipped');
     });
 
 });
