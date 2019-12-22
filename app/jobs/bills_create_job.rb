@@ -6,7 +6,8 @@ class BillsCreateJob < ApplicationJob
     card_number = generate_number while Bill.find_by_card_number(card_number)
 
     Bill.create!(users_id: user.id, bill_type: Bill::DEPOSIT_TYPE, amount: 0,
-                 percent: 0, card_number: card_number)
+                 percent: 0, card_number: card_number,
+                 expired_bill_at: 5.year.from_now)
   end
 
   def generate_number
