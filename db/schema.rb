@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_22_181119) do
+ActiveRecord::Schema.define(version: 2019_12_23_145649) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bill_requests", force: :cascade do |t|
+    t.bigint "admin_id"
+    t.bigint "bill_id"
+    t.datetime "approved_at"
+    t.integer "approved_status"
+    t.string "message"
+  end
 
   create_table "bills", force: :cascade do |t|
     t.bigint "users_id"
@@ -46,6 +54,21 @@ ActiveRecord::Schema.define(version: 2019_12_22_181119) do
     t.string "short_code"
     t.string "phone_code"
     t.string "nickname"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "manager_notifications", force: :cascade do |t|
+    t.bigint "admin_id"
+    t.bigint "bill_id"
+    t.string "message"
+  end
+
+  create_table "transactions", force: :cascade do |t|
+    t.bigint "sender_id"
+    t.bigint "recipient_id"
+    t.decimal "amount", precision: 10, scale: 2
+    t.integer "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
