@@ -16,7 +16,6 @@ class InfoController < ApplicationController
 
   # Update user information
   def update
-    p user_params
     if @current_user.update(user_params)
       redirect_to info_path(@current_user),
                   notice: t('user.message.successUpdate')

@@ -5,6 +5,8 @@
 # Main controller
 class ApplicationController < ActionController::Base
 
+  rescue_from ActiveRecord::RecordNotFound, with: :render_error
+
   # csrf-token
   protect_from_forgery
   # Include module Pundit
@@ -63,6 +65,10 @@ class ApplicationController < ActionController::Base
 
   def user_admin
     pundit_user.admin_role?
+  end
+
+  def render_error
+    render_error_page(500, :internal_server_error)
   end
 
 end
