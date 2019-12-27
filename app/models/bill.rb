@@ -9,6 +9,8 @@ class Bill < ApplicationRecord
 
   scope :my_bills, ->(users_id) { where(users_id: users_id) }
 
+  validates :card_number, length: { is: 14 }
+
   def credit?
     bill_type == CREDIT_TYPE
   end

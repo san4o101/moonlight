@@ -24,6 +24,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
 
+  DENY_DOMAINS = %w[test.com test.ru test.ua admin.com admin.ua admin.ru
+                    moonlight.com moonlight.ru moonlight.ua].freeze
+
   ADMIN_ROLE = 1
   USER_ROLE  = 2
 
@@ -47,6 +50,7 @@ class User < ApplicationRecord
                     length: { is: 9 },
                     allow_blank: true
   validates :password, confirmation: true
+  validate :email_is_deny?
 
   def admin_role?
     role == ADMIN_ROLE
@@ -70,5 +74,11 @@ class User < ApplicationRecord
   end
 
   private
+
+  def email_is_deny?
+    DENY_DOMAINS.each do |domain|
+      errors.add(:email, 'domain is invalid') if email.end_with?('@' + domain)
+    end
+  end
 
 end
