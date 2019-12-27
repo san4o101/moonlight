@@ -80,17 +80,17 @@ $(document).on('turbolinks:load', function() {
         if(!target.hasClass('copy-icon'))
             $(this).toggleClass('is-flipped');
     });
-    card.tooltip({
+
+    copy_icon.tooltip({
         trigger: 'click',
         placement: 'top'
     });
-
     copy_icon.on('click', function (e) {
         let _this = $(this);
         let number = _this.parent().find('span.card-number').text().replace(/\s/g, '');
         copy_text(number);
-        setTooltip(card, 'Card number copied to buffer!');
-        hideTooltip(card);
+        setTooltip(copy_icon, 'Card number copied to buffer!');
+        hideTooltip(copy_icon);
     });
 
     /**
