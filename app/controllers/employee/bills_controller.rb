@@ -1,8 +1,9 @@
 module Employee
 
   class BillsController < EmployeeController
+    before_action :set_user
+    before_action :my_bill?, only: %i[show edit update destroy]
     before_action :set_bill, only: %i[show edit update destroy]
-    before_action :set_user, only: %i[index]
 
     def index
       @bills = Bill.my_bills @current_user.id

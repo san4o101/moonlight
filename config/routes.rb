@@ -26,7 +26,7 @@ Rails.application.routes.draw do
 
     namespace :employee do
       get '/', to: 'home#index', as: :home
-      resources :bills, only: %i[index new create destroy]
+      resources :bills, only: %i[index show new create destroy]
     end
   end
 
