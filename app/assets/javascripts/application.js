@@ -30,6 +30,7 @@ $(document).on('turbolinks:load', function() {
     let basic_phone_number = $('#basic-phone_number');
     let phone_group__div = $('.phone-group__div');
     let card = $('.card-width');
+    let copy_icon = $('.copy-icon');
 
     user_city.autocomplete({
         source: function (request, response) {
@@ -74,8 +75,45 @@ $(document).on('turbolinks:load', function() {
         return true;
     });
 
-    card.on('click', function() {
-        $(this).toggleClass('is-flipped');
+    card.on('click', function(e) {
+        let target = $(e.target);
+        if(!target.hasClass('copy-icon'))
+            $(this).toggleClass('is-flipped');
     });
+    card.tooltip({
+        trigger: 'click',
+        placement: 'top'
+    });
+
+    copy_icon.on('click', function (e) {
+        let _this = $(this);
+        let number = _this.parent().find('span.card-number').text().replace(/\s/g, '');
+        copy_text(number);
+        setTooltip(card, 'Card number copied to buffer!');
+        hideTooltip(card);
+    });
+
+    /**
+     * FUNCTIONS
+     */
+    function setTooltip(item, message) {
+        item.tooltip('hide')
+            .attr('data-original-title', message)
+            .tooltip('show');
+    }
+    function hideTooltip(item) {
+        setTimeout(function() {
+            item.tooltip('hide');
+        }, 1500);
+    }
+
+    function copy_text(text) {
+        let tempArea = document.createElement("textarea");
+        tempArea.value = text;
+        document.body.appendChild(tempArea);
+        tempArea.select();
+        document.execCommand("Copy");
+        tempArea.remove();
+    }
 
 });
