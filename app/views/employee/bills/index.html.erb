@@ -4,7 +4,12 @@
   <% @bills.each do |bill| %>
     <div class="card card-width shadow rounded <%= bill.credit? ? 'credit' : 'deposit' %>-card">
       <div class="card__face card--front">
-        <i class="fa fa-sm fa-copy copy-icon"></i>
+        <div>
+          <a class="text-white cursor-auto" href="<%= employee_bill_path(bill) %>">
+            <i class="fa fa-sm fa-sign-in open-card float-left ml-3 mt-2"></i>
+          </a>
+          <i class="fa fa-sm fa-copy copy-icon float-right mr-3 mt-2"></i>
+        </div>
         <img src="/images/card_logo.svg" width="25" height="25" class="align-top card-image" alt="">
         <div class="card-body text-center">
           <span class="card-number"><%= card_number_format(bill.card_number) %></span> <br>

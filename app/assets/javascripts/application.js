@@ -77,7 +77,7 @@ $(document).on('turbolinks:load', function() {
 
     card.on('click', function(e) {
         let target = $(e.target);
-        if(!target.hasClass('copy-icon'))
+        if(!target.hasClass('copy-icon') && !target.hasClass('open-card'))
             $(this).toggleClass('is-flipped');
     });
 
