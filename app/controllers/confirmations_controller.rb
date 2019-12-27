@@ -19,7 +19,7 @@ class ConfirmationsController < Devise::ConfirmationsController
     sign_in(resource)
     session[:user_id] = resource.id
     resource.update(status: User::STATUS_ACTIVE)
-    BillsCreateJob.perform_later(resource)
+    BillsCreateJob.perform_later(resource, Bill::DEPOSIT_TYPE)
     redirect_to_role_route(resource)
   end
 

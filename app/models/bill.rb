@@ -2,14 +2,16 @@ class Bill < ApplicationRecord
   belongs_to :user, foreign_key: 'users_id'
   has_many :transactions
   has_many :manager_notifications
-  belongs_to :bill_request
+  has_one :bill_request
 
   DEPOSIT_TYPE = 1
   CREDIT_TYPE = 2
 
   scope :my_bills, ->(users_id) { where(users_id: users_id) }
 
-  validates :card_number, length: { is: 14 }
+  validates :card_number, length: { is: 16 }
+  validates :bill_type, inclusion: { in: [DEPOSIT_TYPE, CREDIT_TYPE],
+                                     message: 'Is not valid type' }
 
   def credit?
     bill_type == CREDIT_TYPE

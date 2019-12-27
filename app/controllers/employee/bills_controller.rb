@@ -2,8 +2,8 @@ module Employee
 
   class BillsController < EmployeeController
     before_action :set_user
-    before_action :my_bill?, only: %i[show edit update destroy]
-    before_action :set_bill, only: %i[show edit update destroy]
+    before_action :my_bill?, only: %i[show destroy]
+    before_action :set_bill, only: %i[show destroy]
 
     def index
       @bills = Bill.my_bills @current_user.id
@@ -19,37 +19,32 @@ module Employee
     end
 
     # GET /bills/1/edit
-    def edit; end
+    #def edit; end
 
     # POST /bills
     # POST /bills.json
     def create
-      @bill = Bill.new(bill_params)
+      BillsCreateJob.perform_later(@current_user, bill_params[:bill_type].to_i)
 
       respond_to do |format|
-        if @bill.save
-          format.html { redirect_to employee_bills_path, notice: t('user.message.successCreateBill') }
-          format.json { render :show, status: :created, location: employee_bills_path }
-        else
-          format.html { render :new }
-          format.json { render json: @bill.errors, status: :unprocessable_entity }
-        end
+        format.html { redirect_to employee_bills_path, notice: t('user.message.successOrderingBill') }
+        format.json { render :show, status: :created, location: employee_bills_path }
       end
     end
 
     # PATCH/PUT /bills/1
     # PATCH/PUT /bills/1.json
-    def update
-      respond_to do |format|
-        if @bill.update(bill_params)
-          format.html { redirect_to employee_bills_path, notice: t('user.message.successUpdateBill') }
-          format.json { render :show, status: :ok, location: employee_bills_path }
-        else
-          format.html { render :edit }
-          format.json { render json: @bill.errors, status: :unprocessable_entity }
-        end
-      end
-    end
+    #def update
+    #  respond_to do |format|
+    #    if @bill.update(bill_params)
+    #      format.html { redirect_to employee_bills_path, notice: t('user.message.successUpdateBill') }
+    #      format.json { render :show, status: :ok, location: employee_bills_path }
+    #    else
+    #      format.html { render :edit }
+    #      format.json { render json: @bill.errors, status: :unprocessable_entity }
+    #    end
+    #  end
+    #end
 
     # DELETE /bills/1
     # DELETE /bills/1.json

@@ -81,16 +81,16 @@ $(document).on('turbolinks:load', function() {
             $(this).toggleClass('is-flipped');
     });
 
-    copy_icon.tooltip({
-        trigger: 'click',
-        placement: 'top'
-    });
     copy_icon.on('click', function (e) {
         let _this = $(this);
-        let number = _this.parent().find('span.card-number').text().replace(/\s/g, '');
+        _this.tooltip({
+            trigger: 'click',
+            placement: 'top'
+        });
+        let number = _this.closest('.card').find('span.card-number').text().replace(/\s/g, '');
         copy_text(number);
-        setTooltip(copy_icon, 'Card number copied to buffer!');
-        hideTooltip(copy_icon);
+        setTooltip(_this, 'Card number copied to buffer!');
+        hideTooltip(_this);
     });
 
     /**

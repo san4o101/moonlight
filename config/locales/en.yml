@@ -25,6 +25,7 @@ en:
       successCreateBill: 'Bill was successfully created.'
       successUpdateBill: 'Bill was successfully updated.'
       successDestroyBill: 'Bill was successfully destroyed.'
+      successOrderingBill: 'Bill was successfully ordering. Wait for a confirmation email.'
   action:
     logIn: "Log In"
     signIn: "Sign In"
