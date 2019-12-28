@@ -24,8 +24,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
 
-  DENY_DOMAINS = %w[test.com test.ru test.ua admin.com admin.ua admin.ru
-                    moonlight.com moonlight.ru moonlight.ua].freeze
+  DENY_DOMAINS = %w[test.com test.ru test.ua admin.com admin.ua admin.ru].freeze
 
   ADMIN_ROLE = 1
   USER_ROLE  = 2
