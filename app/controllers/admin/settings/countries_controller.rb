@@ -3,6 +3,8 @@ module Admin
 
     class CountriesController < AdminController
       before_action :set_country, only: [:show, :edit, :update, :destroy]
+      add_breadcrumb I18n.t('breadcrumbs.country.index'),
+                     :admin_settings_countries_path
 
       # GET /countries
       # GET /countries.json
@@ -13,15 +15,21 @@ module Admin
       # GET /countries/1
       # GET /countries/1.json
       def show
+        render_breadcrumbs
       end
 
       # GET /countries/new
       def new
+        add_breadcrumb I18n.t('breadcrumbs.country.new'),
+                       :new_admin_settings_country_path
         @country = Country.new
       end
 
       # GET /countries/1/edit
       def edit
+        render_breadcrumbs
+        add_breadcrumb I18n.t('breadcrumbs.country.edit'),
+                       :edit_admin_settings_country_path
       end
 
       # POST /countries
@@ -89,6 +97,11 @@ module Admin
       def country_params
         params.require(:country).permit(:name, :short_code, :phone_code,
                                         :nickname)
+      end
+
+      def render_breadcrumbs
+        add_breadcrumb I18n.t('breadcrumbs.country.show', country: @country.name),
+                       :admin_settings_country_path
       end
     end
 

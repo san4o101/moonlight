@@ -1,11 +1,9 @@
 
 <div class="card shadow">
   <div class="card-header">
-    Ordering bill
+    <%= t('bill.ordering') %>
   </div>
   <div class="card-body">
     <%= render 'form', bill: @bill, model_url: employee_bills_path %>
-
-    <%= link_to 'Back', employee_bills_path, class: 'btn btn-secondary' %>
   </div>
 </div>

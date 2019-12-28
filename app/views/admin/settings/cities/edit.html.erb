@@ -1,13 +1,10 @@
 <%= render('admin/settings/nav') %>
 
-<div class="card">
+<div class="card shadow">
   <div class="card-header">
-    Edit city
+    <%= t('city.action.edit') %>
   </div>
   <div class="card-body">
-    <%= render 'form', city: @city, model_url: edit_admin_settings_city_path(@city) %>
-
-    <%= link_to 'Show', admin_settings_city_path(@city), class: 'btn btn-primary' %> |
-    <%= link_to 'Back', admin_settings_cities_path, class: 'btn btn-secondary' %>
+    <%= render 'form', city: @city, model_url: edit_admin_settings_city_path(@city), button_name: t('action.edit') %>
   </div>
 </div>

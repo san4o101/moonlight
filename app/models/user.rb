@@ -68,8 +68,8 @@ class User < ApplicationRecord
   end
 
   def gender_name
-    return 'Male' if gender == GENDER_MALE
-    'Female' if gender == GENDER_FEMALE
+    return I18n.t('user.gender.male') if gender == GENDER_MALE
+    I18n.t('user.gender.female') if gender == GENDER_FEMALE
   end
 
   private

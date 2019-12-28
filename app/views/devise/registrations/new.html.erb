@@ -1,6 +1,6 @@
 <div class="login-buttons">
   <%- if controller_name != 'sessions' %>
-    <%= link_to "Log in", new_session_path(resource_name), class: 'btn btn-outline-success' %><br />
+    <%= link_to t('devise.fields.login'), new_session_path(resource_name), class: 'btn btn-outline-success' %><br />
   <% end %>
 </div>
 
@@ -10,18 +10,18 @@
              html: {class: 'form-signin'}) do |f| %>
 
   <img class="mb-4" src="/images/moon_logo.svg" alt="" width="72" height="72">
-  <h1 class="h3 mb-3 font-weight-normal">Please sign up</h1>
+  <h1 class="h3 mb-3 font-weight-normal"><%= t('devise.fields.please_signup') %></h1>
 
   <%= f.label :email, class: 'sr-only' %>
-  <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'Email' %>
+  <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: t('user.field.email') %>
 
   <%= f.label :password, class: 'sr-only' %>
   <%= f.password_field :password, autocomplete: "new-password", class: 'form-control',
-                       placeholder: 'Password' %>
+                       placeholder: t('user.field.new_password') %>
 
   <%= f.label :password_confirmation, class: 'sr-only' %>
   <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control',
-                       placeholder: 'Confirm password' %>
+                       placeholder: t('user.field.confirmation_password') %>
 
-  <%= f.submit "Sign up", class: 'btn btn-lg btn-primary btn-block' %>
+  <%= f.submit t('devise.fields.signup'), class: 'btn btn-lg btn-primary btn-block' %>
 <% end %>

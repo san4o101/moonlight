@@ -31,5 +31,9 @@ module MoonlightSystem
       g.fixture_replacement :factory_bot, dir: 'spec/factories'
     end
 
+    # default locale setting
+    config.i18n.available_locales = %i[en uk]
+    config.i18n.default_locale = :uk
+
   end
 end

@@ -1,10 +1,10 @@
 <div class="login-buttons">
   <%- if controller_name != 'sessions' %>
-    <%= link_to "Log in", new_session_path(resource_name), class: 'btn btn-outline-success mr-2' %><br />
+    <%= link_to t('devise.fields.login'), new_session_path(resource_name), class: 'btn btn-outline-success mr-2' %><br />
   <% end %>
 
   <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-    <%= link_to "Sign up", new_registration_path(resource_name), class: 'btn btn-outline-primary' %>
+    <%= link_to t('devise.fields.signup'), new_registration_path(resource_name), class: 'btn btn-outline-primary' %>
   <% end %>
 </div>
 
@@ -13,10 +13,10 @@
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
 
   <img class="mb-4" src="/images/moon_logo.svg" alt="" width="72" height="72">
-  <h1 class="h3 mb-3 font-weight-normal">Forgot your password?</h1>
+  <h1 class="h3 mb-3 font-weight-normal"><%= t('devise.fields.forgot_password') %></h1>
 
   <%= f.label :email, class: 'sr-only' %>
-  <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'Enter email address' %>
+  <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: t('devise.fields.enter_mail') %>
 
-  <%= f.submit "Send me reset password instructions", class: 'btn btn-lg btn-secondary btn-block mt-3' %>
+  <%= f.submit t('devise.fields.send_instructions_password'), class: 'btn btn-lg btn-secondary btn-block mt-3' %>
 <% end %>

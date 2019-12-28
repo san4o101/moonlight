@@ -82,3 +82,5 @@ gem 'pundit'
 gem 'kaminari'
 # Breadcrumbs
 gem "breadcrumbs_on_rails"
+# Locales
+gem 'rails-i18n'

@@ -1,7 +1,9 @@
 module Admin
   module Settings
     class CitiesController < AdminController
-      before_action :set_city, only: [:show, :edit, :update, :destroy]
+      before_action :set_city, only: %i[show edit update destroy]
+      add_breadcrumb I18n.t('breadcrumbs.city.index'),
+                     :admin_settings_cities_path
 
       # GET /cities
       # GET /cities.json
@@ -11,15 +13,23 @@ module Admin
 
       # GET /cities/1
       # GET /cities/1.json
-      def show; end
+      def show
+        render_breadcrumbs
+      end
 
       # GET /cities/new
       def new
+        add_breadcrumb I18n.t('breadcrumbs.city.new'),
+                       :new_admin_settings_city_path
         @city = City.new
       end
 
       # GET /cities/1/edit
-      def edit; end
+      def edit
+        render_breadcrumbs
+        add_breadcrumb I18n.t('breadcrumbs.city.edit'),
+                       :edit_admin_settings_city_path
+      end
 
       # POST /cities
       # POST /cities.json
@@ -85,6 +95,11 @@ module Admin
       # Never trust parameters from the scary internet, only allow the white list through.
       def city_params
         params.require(:city).permit(:name, :country_id)
+      end
+
+      def render_breadcrumbs
+        add_breadcrumb I18n.t('breadcrumbs.city.show', city: @city.name),
+                       :admin_settings_city_path
       end
     end
   end

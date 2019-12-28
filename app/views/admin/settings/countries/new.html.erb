@@ -1,12 +1,11 @@
 <%= render('admin/settings/nav') %>
 
-<div class="card">
+<div class="card shadow">
   <div class="card-header">
-    Create country
+    <%= t('country.action.new') %>
   </div>
   <div class="card-body">
-    <%= render 'form', country: @country, model_url: admin_settings_countries_path %>
-
-    <%= link_to 'Back', admin_settings_countries_path, class: 'btn btn-secondary' %>
+    <%= render 'form', country: @country, model_url: admin_settings_countries_path,
+               button_name: t('action.create')%>
   </div>
 </div>

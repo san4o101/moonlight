@@ -3,9 +3,9 @@
     <div class="card mt-3 shadow">
       <div class="card-header">
         <% if @current_user.full_name? %>
-          Enter you information
+          <%= t('user.action.enter_info') %>
         <% else %>
-          Edit you information
+          <%= t('user.action.edit_info') %>
         <% end %>
       </div>
       <div class="card-body">

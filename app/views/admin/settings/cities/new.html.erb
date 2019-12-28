@@ -1,12 +1,10 @@
 <%= render('admin/settings/nav') %>
 
-<div class="card">
+<div class="card shadow">
   <div class="card-header">
-    Create city
+    <%= t('city.action.new') %>
   </div>
   <div class="card-body">
-    <%= render 'form', city: @city, model_url: admin_settings_cities_path %>
-
-    <%= link_to 'Back', admin_settings_cities_path, class: 'btn btn-secondary' %>
+    <%= render 'form', city: @city, model_url: admin_settings_cities_path, button_name: t('action.create') %>
   </div>
 </div>

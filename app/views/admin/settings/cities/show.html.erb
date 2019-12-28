@@ -1,18 +1,17 @@
 <%= render('admin/settings/nav') %>
 
-<div class="card">
+<div class="card shadow">
   <div class="card-header">
     <strong><%= @city.name %></strong>
   </div>
   <div class="card-body">
     <p>
-      <strong>Country:</strong>
+      <strong><%= t('city.field.country') %>:</strong>
       <%= @city.country.name %>
     </p>
 
-    <%= link_to 'Edit', edit_admin_settings_city_path(@city), class: 'btn btn-primary' %> |
-    <%= link_to 'Destroy', admin_settings_city_path(@city), method: :delete, data: { confirm: 'Are you sure?' },
-                class: 'btn btn-danger' %> |
-    <%= link_to 'Back', admin_settings_cities_path, class: 'btn btn-secondary' %>
+    <%= link_to t('action.edit'), edit_admin_settings_city_path(@city), class: 'btn btn-primary' %> |
+    <%= link_to t('action.destroy'), admin_settings_city_path(@city), method: :delete, data: { confirm: 'Are you sure?' },
+                class: 'btn btn-danger' %>
   </div>
 </div>

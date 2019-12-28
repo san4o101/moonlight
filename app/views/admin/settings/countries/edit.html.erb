@@ -1,13 +1,11 @@
 <%= render('admin/settings/nav') %>
 
-<div class="card">
+<div class="card shadow">
   <div class="card-header">
-    Edit country
+    <%= t('country.action.edit') %>
   </div>
   <div class="card-body">
-    <%= render 'form', country: @country, model_url: edit_admin_settings_country_path(@country) %>
-
-    <%= link_to 'Show', admin_settings_country_path(@country), class: 'btn btn-primary' %> |
-    <%= link_to 'Back', admin_settings_countries_path, class: 'btn btn-secondary' %>
+    <%= render 'form', country: @country, model_url: edit_admin_settings_country_path(@country),
+                button_name: t('action.edit') %>
   </div>
 </div>

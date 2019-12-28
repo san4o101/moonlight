@@ -1,5 +1,5 @@
 <% if user.admin_role? %>
-  <span class="badge badge-success">Admin</span>
+  <span class="badge badge-success"><%= t('user.role.admin') %></span>
 <% elsif user.user_role? %>
-  <span class="badge badge-primary">User</span>
+  <span class="badge badge-primary"><%= t('user.role.employee') %></span>
 <% end %>

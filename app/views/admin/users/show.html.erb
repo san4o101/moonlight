@@ -1,37 +1,36 @@
 
-<%= link_to 'Change password', admin_user_password_path(@user), class: 'btn btn-success mb-3' %>
+<%= link_to t('user.action.change_password'), admin_user_password_path(@user), class: 'btn btn-success mb-3' %>
 
-<div class="card">
+<div class="card shadow">
   <div class="card-header">
     <strong><%= @user.full_name %></strong>
     <%= render 'partials/user_status', user: @user %>
   </div>
   <div class="card-body">
     <p>
-      <strong>Email:</strong>
+      <strong><%= t('user.field.email') %>:</strong>
       <%= @user.email %>
     </p>
     <p>
-      <strong>Birthday:</strong>
+      <strong><%= t('user.field.birthday') %>:</strong>
       <%= @user.birthday %>
     </p>
     <p>
-      <strong>Gender:</strong>
+      <strong><%= t('user.field.gender') %>:</strong>
       <%= @user.gender_name %>
     </p>
     <p>
-      <strong>Phone:</strong>
+      <strong><%= t('user.field.phone') %>:</strong>
       +<%= @user.city.present? ? @user.city.country.phone_code : '' %>
       <%= @user.phone %>
     </p>
     <p>
-      <strong>City:</strong>
+      <strong><%= t('user.field.city') %>:</strong>
       <%= @user.city.present? ? @user.city.name : '' %>
     </p>
 
-    <%= link_to 'Edit', edit_admin_user_path(@user), class: 'btn btn-primary' %> |
-    <%= link_to 'Destroy', admin_user_path(@user), method: :delete, data: { confirm: 'Are you sure?' },
-                class: 'btn btn-danger'%> |
-    <%= link_to 'Back', admin_users_path, class: 'btn btn-secondary' %>
+    <%= link_to t('action.edit'), edit_admin_user_path(@user), class: 'btn btn-primary' %> |
+    <%= link_to t('action.destroy'), admin_user_path(@user), method: :delete, data: { confirm: 'Are you sure?' },
+                class: 'btn btn-danger'%>
   </div>
 </div>

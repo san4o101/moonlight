@@ -1,28 +1,27 @@
 <%= render('admin/settings/nav') %>
 
-<div class="card mt-3">
+<div class="card mt-3 shadow">
   <div class="card-header">
     <strong><%= @country.name %></strong>
   </div>
   <div class="card-body">
     <p>
-      <strong>Short code:</strong>
+      <strong><%= t('country.field.short_code') %>:</strong>
       <%= @country.short_code %>
     </p>
 
     <p>
-      <strong>Phone code:</strong>
+      <strong><%= t('country.field.phone_code') %>:</strong>
       <%= @country.phone_code %>
     </p>
 
     <p>
-      <strong>Nickname:</strong>
+      <strong><%= t('country.field.nickname') %>:</strong>
       <%= @country.nickname %>
     </p>
 
-    <%= link_to 'Edit', edit_admin_settings_country_path(@country), class: 'btn btn-primary' %> |
-    <%= link_to 'Destroy', admin_settings_country_path(@country), method: :delete, data: { confirm: 'Are you sure?' },
-                class: 'btn btn-danger' %> |
-    <%= link_to 'Back', admin_settings_countries_path, class: 'btn btn-secondary' %>
+    <%= link_to t('action.edit'), edit_admin_settings_country_path(@country), class: 'btn btn-primary' %> |
+    <%= link_to t('action.destroy'), admin_settings_country_path(@country), method: :delete, data: { confirm: 'Are you sure?' },
+                class: 'btn btn-danger' %>
   </div>
 </div>

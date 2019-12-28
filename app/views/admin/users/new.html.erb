@@ -1,11 +1,9 @@
 
 <div class="card">
   <div class="card-header">
-    Create user
+    <%= t('user.action.create') %>
   </div>
   <div class="card-body">
-    <%= render 'form', user: @user, model_url: admin_users_path %>
-
-    <%= link_to 'Back', admin_users_path, class: 'btn btn-secondary' %>
+    <%= render 'form', user: @user, model_url: admin_users_path, button_name: t('action.create') %>
   </div>
 </div>

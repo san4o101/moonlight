@@ -89,7 +89,7 @@ $(document).on('turbolinks:load', function() {
         });
         let number = _this.closest('.card').find('span.card-number').text().replace(/\s/g, '');
         copy_text(number);
-        setTooltip(_this, 'Card number copied to buffer!');
+        setTooltip(_this, 'Номер карти скопійовано!');
         hideTooltip(_this);
     });
 

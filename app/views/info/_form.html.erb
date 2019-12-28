@@ -2,7 +2,7 @@
               html: { autocomplete: 'off' }) do |form| %>
 
   <div class="form-group">
-    <%= form.label :first_name %>
+    <%= form.label :first_name, t('user.field.first_name') %>
     <%= form.text_field :first_name, class: "form-control #{' is-invalid ' if user.errors[:first_name].any? }",
                         placeholder: 'Enter first name', required: 'true' %>
     <% if user.errors[:first_name].any? %>
@@ -13,7 +13,7 @@
   </div>
 
   <div class="form-group">
-    <%= form.label :last_name %>
+    <%= form.label :last_name, t('user.field.last_name') %>
     <%= form.text_field :last_name, class: "form-control #{' is-invalid ' if user.errors[:last_name].any? }",
                         placeholder: 'Enter last name', required: 'true' %>
     <% if user.errors[:last_name].any? %>
@@ -24,7 +24,7 @@
   </div>
 
   <div class="form-group">
-    <%= form.label :second_name %>
+    <%= form.label :second_name, t('user.field.second_name') %>
     <%= form.text_field :second_name, class: "form-control #{' is-invalid ' if user.errors[:second_name].any? }",
                         placeholder: 'Enter second name' %>
     <% if user.errors[:second_name].any? %>
@@ -35,7 +35,7 @@
   </div>
 
   <div class="form-group">
-    <%= form.label :birthday %>
+    <%= form.label :birthday, t('user.field.birthday') %>
     <%= datepicker(form, :birthday, user) %>
     <% if user.errors[:birthday].any? %>
       <span class="invalid-feedback">
@@ -45,15 +45,15 @@
   </div>
 
   <div class="form-group">
-    <%= label :gender, 'Gender' %>
+    <%= label :gender, t('user.field.gender') %>
     <div class="row d-flex justify-content-around">
       <div class="form-check form-check-inline">
         <%= form.radio_button :gender, User::GENDER_MALE, class: 'form-check-input' %>
-        <%= form.label :gender, 'Male', value: User::GENDER_MALE, class: 'form-check-label' %>
+        <%= form.label :gender, t('user.gender.male'), value: User::GENDER_MALE, class: 'form-check-label' %>
       </div>
       <div class="form-check form-check-inline">
         <%= form.radio_button :gender, User::GENDER_FEMALE, class: 'form-check-input' %>
-        <%= form.label :gender, 'Female', value: User::GENDER_FEMALE, class: 'form-check-label' %>
+        <%= form.label :gender, t('user.gender.female'), value: User::GENDER_FEMALE, class: 'form-check-label' %>
       </div>
     </div>
     <% if user.errors[:gender].any? %>
@@ -64,7 +64,7 @@
   </div>
 
   <div class="form-group">
-    <%= form.label :city %>
+    <%= form.label :city, t('user.field.city') %>
     <%= form.hidden_field :cities_id %>
     <%= form.text_field :city, class: "form-control #{' is-invalid ' if user.errors[:city].any? }",
         value: user.city.present? ? user.city.name : ''%>
@@ -76,7 +76,7 @@
   </div>
 
   <div class="form-group phone-group__div <%= user.city.present? ? '' : 'd-none' %>">
-    <%= form.label :phone %>
+    <%= form.label :phone, t('user.field.phone') %>
     <div class="input-group mb-3">
       <div class="input-group-prepend">
         <span class="input-group-text" id="basic-phone_number">+<%= user.city.present? ? user.city.country.phone_code : '' %></span>
@@ -92,6 +92,6 @@
   </div>
 
   <div class="actions">
-    <%= form.submit class: 'btn btn-success' %>
+    <%= form.submit t('action.save'), class: 'btn btn-success' %>
   </div>
 <% end %>

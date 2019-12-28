@@ -1,15 +1,15 @@
 <%= form_with(model: bill, url: model_url, local: true) do |form| %>
 
   <div class="form-group">
-    <%= label :bill_type, 'Type' %>
+    <%= label :bill_type, t('bill.field.type') %>
     <div class="row d-flex justify-content-around">
       <div class="form-check form-check-inline">
         <%= form.radio_button :bill_type, Bill::DEPOSIT_TYPE, class: 'form-check-input' %>
-        <%= form.label :bill_type, 'Deposit', value: Bill::DEPOSIT_TYPE, class: 'form-check-label' %>
+        <%= form.label :bill_type, t('bill.types.deposit'), value: Bill::DEPOSIT_TYPE, class: 'form-check-label' %>
       </div>
       <div class="form-check form-check-inline">
         <%= form.radio_button :bill_type, Bill::CREDIT_TYPE, class: 'form-check-input' %>
-        <%= form.label :bill_type, 'Credit', value: Bill::CREDIT_TYPE, class: 'form-check-label' %>
+        <%= form.label :bill_type, t('bill.types.credit'), value: Bill::CREDIT_TYPE, class: 'form-check-label' %>
       </div>
     </div>
     <% if bill.errors[:bill_type].any? %>
@@ -20,6 +20,6 @@
   </div>
 
   <div class="actions">
-    <%= form.submit 'Order', class: 'btn btn-success mb-3' %>
+    <%= form.submit t('action.order'), class: 'btn btn-success mb-3' %>
   </div>
 <% end %>

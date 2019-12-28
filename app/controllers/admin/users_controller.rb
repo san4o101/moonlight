@@ -2,6 +2,8 @@ module Admin
   class UsersController < AdminController
     before_action :set_user, only:
         %i[show edit update destroy password password_change]
+    add_breadcrumb I18n.t('breadcrumbs.users.index'),
+                   :admin_users_path
 
     # GET /users
     # GET /users.json
@@ -11,7 +13,9 @@ module Admin
 
     # GET /users/1
     # GET /users/1.json
-    def show; end
+    def show
+      render_breadcrumbs
+    end
 
     # GET /users/new
     #def new
@@ -19,7 +23,11 @@ module Admin
     #end
 
     # GET /users/1/edit
-    def edit; end
+    def edit
+      render_breadcrumbs
+      add_breadcrumb I18n.t('breadcrumbs.users.edit'),
+                     :edit_admin_user_path
+    end
 
     # POST /users
     # POST /users.json
@@ -77,7 +85,11 @@ module Admin
     end
 
     # GET /users/1/password
-    def password; end
+    def password
+      render_breadcrumbs
+      add_breadcrumb I18n.t('breadcrumbs.users.password'),
+                     :admin_user_password_path
+    end
 
     # POST /users/1/password
     def password_change
@@ -110,6 +122,11 @@ module Admin
 
     def password_params
       params.require(:user).permit(:password, :password_confirmation)
+    end
+
+    def render_breadcrumbs
+      add_breadcrumb I18n.t('breadcrumbs.users.show', user: @user.full_name),
+                     :admin_user_path
     end
   end
 end
