@@ -1,0 +1,30 @@
+<div class="card card-width shadow rounded <%= bill.credit? ? 'credit' : 'deposit' %>-card m-2">
+  <div class="card__face card--front">
+    <div>
+      <a class="text-white cursor-auto" href="#">
+        <i class="fa fa-sm fa-sign-in open-card float-left ml-3 mt-2"></i>
+      </a>
+      <i class="fa fa-sm fa-copy copy-icon float-right mr-3 mt-2 cursor-auto"></i>
+    </div>
+    <img src="/images/card_logo.svg" width="25" height="25" class="align-top card-image" alt="">
+    <div class="card-body text-center">
+      <span class="card-number"><%= card_number_format(bill.card_number) %></span> <br>
+      <span class="card-date"><%= card_date_expired(bill.expired_bill_at) %></span>
+    </div>
+  </div>
+  <div class="card__face card--back">
+    <div class="card-body pt-2">
+      <p class="mb-0 mt-0"><%= t('bill.field.amount') %>:
+        <span class="amount"><%= bill.amount %></span>
+      </p>
+      <% if bill.credit? %>
+        <p class="mb-0 mt-0"><%= t('bill.field.percent') %>:
+          <span class=""><%= bill.percent %> %</span>
+        </p>
+        <p class="mb-0 mt-0"><%= t('bill.field.replenishment_at') %>:
+          <span class=""><%= bill.replenishment_at %></span>
+        </p>
+      <% end %>
+    </div>
+  </div>
+</div>

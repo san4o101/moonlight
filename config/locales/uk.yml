@@ -21,6 +21,7 @@ uk:
       myInfo: "Моя інформація"
       users: "Користувачі"
       bills: "Мої рахунки"
+      employee_bills: 'Рахунки користувача'
       full_name: 'ФІО'
       email: 'Пошта'
       password: 'Пароль'
@@ -34,6 +35,7 @@ uk:
       role: 'Роль'
       new_password: 'Новий пароль'
       confirmation_password: 'Підтвердження паролю'
+      notification: 'Сповіщення'
     action:
       enter_info: 'Заповніть інформацію'
       edit_info: 'Відредагувати інформацію'

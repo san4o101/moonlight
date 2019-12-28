@@ -4,6 +4,6 @@
     <%= t('user.action.edit') %>
   </div>
   <div class="card-body">
-    <%= render 'form', user: @user, model_url: admin_user_path(@user), button_name: t('action.edit') %>
+    <%= render 'admin/users/partials/form', user: @user, model_url: admin_user_path(@user), button_name: t('action.edit') %>
   </div>
 </div>

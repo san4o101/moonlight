@@ -1,36 +1,51 @@
 
 <%= link_to t('user.action.change_password'), admin_user_password_path(@user), class: 'btn btn-success mb-3' %>
 
-<div class="card shadow">
-  <div class="card-header">
-    <strong><%= @user.full_name %></strong>
-    <%= render 'partials/user_status', user: @user %>
-  </div>
-  <div class="card-body">
-    <p>
-      <strong><%= t('user.field.email') %>:</strong>
-      <%= @user.email %>
-    </p>
-    <p>
-      <strong><%= t('user.field.birthday') %>:</strong>
-      <%= @user.birthday %>
-    </p>
-    <p>
-      <strong><%= t('user.field.gender') %>:</strong>
-      <%= @user.gender_name %>
-    </p>
-    <p>
-      <strong><%= t('user.field.phone') %>:</strong>
-      +<%= @user.city.present? ? @user.city.country.phone_code : '' %>
-      <%= @user.phone %>
-    </p>
-    <p>
-      <strong><%= t('user.field.city') %>:</strong>
-      <%= @user.city.present? ? @user.city.name : '' %>
-    </p>
+<div class="row">
+  <div class="col-md-6">
+    <div class="card shadow sticky-top">
+      <div class="card-header">
+        <strong><%= @user.full_name %></strong>
+        <%= render 'partials/user_status', user: @user %>
+      </div>
+      <div class="card-body">
+        <p>
+          <strong><%= t('user.field.email') %>:</strong>
+          <%= @user.email %>
+        </p>
+        <p>
+          <strong><%= t('user.field.birthday') %>:</strong>
+          <%= @user.birthday %>
+        </p>
+        <p>
+          <strong><%= t('user.field.gender') %>:</strong>
+          <%= @user.gender_name %>
+        </p>
+        <p>
+          <strong><%= t('user.field.phone') %>:</strong>
+          +<%= @user.city.present? ? @user.city.country.phone_code : '' %>
+          <%= @user.phone %>
+        </p>
+        <p>
+          <strong><%= t('user.field.city') %>:</strong>
+          <%= @user.city.present? ? @user.city.name : '' %>
+        </p>
 
-    <%= link_to t('action.edit'), edit_admin_user_path(@user), class: 'btn btn-primary' %> |
-    <%= link_to t('action.destroy'), admin_user_path(@user), method: :delete, data: { confirm: 'Are you sure?' },
-                class: 'btn btn-danger'%>
+        <%= link_to t('action.edit'), edit_admin_user_path(@user), class: 'btn btn-primary' %> |
+        <%= link_to t('action.destroy'), admin_user_path(@user), method: :delete, data: { confirm: 'Are you sure?' },
+                    class: 'btn btn-danger'%>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card shadow">
+      <div class="card-header">
+        <strong><%= t('user.field.employee_bills') %></strong>
+      </div>
+      <div class="card-body row justify-content-center">
+        <%= render(partial: 'admin/users/partials/bills', collection: @user.bills, as: :bill) ||
+                t('action.empty') %>
+      </div>
+    </div>
   </div>
 </div>

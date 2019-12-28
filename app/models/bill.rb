@@ -8,7 +8,11 @@ class Bill < ApplicationRecord
   DEPOSIT_TYPE = 1
   CREDIT_TYPE = 2
 
-  scope :my_bills, ->(users_id) { where(users_id: users_id) }
+  scope :my_bills, lambda { |users_id|
+    joins(:bill_request)
+      .where('bills.users_id = ? AND bill_requests.approved_status = ?',
+             users_id, BillRequest::APPROVED_YES)
+  }
 
   validates :card_number, length: { is: 16 }
   validates :bill_type, inclusion: { in: [DEPOSIT_TYPE, CREDIT_TYPE],
