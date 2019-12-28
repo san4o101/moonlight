@@ -1,6 +1,11 @@
 class BillsCreateJob < ApplicationJob
   queue_as :default
 
+  # TODO: after job create new bill send message to admin
+  #after_enqueue do |job|
+  #  ManagerNotificationJob.perform_later(job.arguments)
+  #end
+
   before_enqueue do |job|
     user = job.arguments[0]
     type_bill = job.arguments[1]
