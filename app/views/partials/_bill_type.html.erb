@@ -1,0 +1,5 @@
+<% if bill_type == Bill::DEPOSIT_TYPE %>
+  <span class="badge badge-primary">Deposit</span>
+<% elsif bill_type == Bill::CREDIT_TYPE %>
+  <span class="badge badge-dark">Credit</span>
+<% end %>

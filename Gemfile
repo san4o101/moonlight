@@ -80,3 +80,5 @@ gem 'devise'
 gem 'pundit'
 # Pagination
 gem 'kaminari'
+# Breadcrumbs
+gem "breadcrumbs_on_rails"

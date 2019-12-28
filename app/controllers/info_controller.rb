@@ -11,6 +11,7 @@ class InfoController < ApplicationController
 
   # Show user information
   def index
+    add_breadcrumb I18n.t('breadcrumbs.info.index'), :info_path
     render :index
   end
 
@@ -30,6 +31,7 @@ class InfoController < ApplicationController
   # @return @current_user
   def set_user
     @current_user = User.find(params[:id])
+    setup_breadcrumbs
   end
 
   # Check my page (route)
@@ -53,6 +55,14 @@ class InfoController < ApplicationController
   def user_params
     params.require(:user).permit(:first_name, :last_name, :second_name,
                                  :birthday, :gender, :phone, :cities_id)
+  end
+
+  def setup_breadcrumbs
+    if @current_user.user_role?
+      add_breadcrumb I18n.t('breadcrumbs.home'), :employee_home_path
+    else
+      add_breadcrumb I18n.t('breadcrumbs.home'), :admin_home_path
+    end
   end
 
 end

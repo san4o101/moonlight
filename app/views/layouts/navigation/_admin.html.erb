@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-dark navbar-dark bg-light rounded-bottom mb-4">
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark bg-light rounded-bottom mb-4 shadow">
   <a class="navbar-brand" href="<%= admin_home_path %>">
     <img src="/images/moon_logo.svg" width="25" height="25" class="d-inline-block align-top" alt="">
     Moonlight
@@ -37,3 +37,5 @@
     </ul>
   </div>
 </nav>
+
+<%= render('layouts/navigation/breadcrumbs') %>

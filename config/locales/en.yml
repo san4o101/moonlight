@@ -39,3 +39,11 @@ en:
     successCreate: 'Country was successfully created.'
     successUpdate: 'Country was successfully updated.'
     successDestroy: 'Country was successfully destroyed.'
+  breadcrumbs:
+    home: 'Home'
+    bills:
+      index: 'My bills'
+      show: 'My bill info'
+      new: 'Ordering bill'
+    info:
+      index: 'My info'

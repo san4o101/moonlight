@@ -6,8 +6,9 @@
 class EmployeeController < ApplicationController
 
   before_action :employee_user!
-
   layout 'employee'
+
+  add_breadcrumb I18n.t('breadcrumbs.home'), :employee_home_path
 
   private
 

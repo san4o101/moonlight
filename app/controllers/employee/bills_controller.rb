@@ -5,16 +5,21 @@ module Employee
     before_action :my_bill?, only: %i[show destroy]
     before_action :set_bill, only: %i[show destroy]
 
+    add_breadcrumb I18n.t('breadcrumbs.bills.index'), :employee_bills_path
+
     def index
       @bills = Bill.my_bills @current_user.id
     end
 
     # GET /bills/1
     # GET /bills/1.json
-    def show; end
+    def show
+      add_breadcrumb I18n.t('breadcrumbs.bills.show'), :employee_bill_path
+    end
 
     # GET /bills/new
     def new
+      add_breadcrumb I18n.t('breadcrumbs.bills.new'), :new_employee_bill_path
       @bill = Bill.new
     end
 
