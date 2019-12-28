@@ -13,6 +13,7 @@ class Bill < ApplicationRecord
       .where('bills.users_id = ? AND bill_requests.approved_status = ?',
              users_id, BillRequest::APPROVED_YES)
   }
+  scope :order_by_id, -> { order('id ASC') }
 
   validates :card_number, length: { is: 16 }
   validates :bill_type, inclusion: { in: [DEPOSIT_TYPE, CREDIT_TYPE],
