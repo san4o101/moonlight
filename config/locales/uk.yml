@@ -65,6 +65,9 @@ uk:
     logOut: "Вийти"
     settings: "Налаштування"
     empty: 'Тут поки що порожньо'
+  messages:
+    errorDomain: 'Недопустимий домен поштової скриньки'
+    errorName: "Недопустиме ім'я поштової скриньки"
   city:
     field:
       name: 'Назва'

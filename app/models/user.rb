@@ -25,6 +25,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :confirmable
 
   DENY_DOMAINS = %w[test.com test.ru test.ua admin.com admin.ua admin.ru].freeze
+  DENY_NAMES = %w[test administrator].freeze
 
   ADMIN_ROLE = 1
   USER_ROLE  = 2
@@ -49,7 +50,8 @@ class User < ApplicationRecord
                     length: { is: 9 },
                     allow_blank: true
   validates :password, confirmation: true
-  validate :email_is_deny?
+  validate :email_start_is_deny?
+  validate :email_end_is_deny?
 
   def admin_role?
     role == ADMIN_ROLE
@@ -74,9 +76,15 @@ class User < ApplicationRecord
 
   private
 
-  def email_is_deny?
+  def email_end_is_deny?
     DENY_DOMAINS.each do |domain|
-      errors.add(:email, 'domain is invalid') if email.end_with?('@' + domain)
+      errors.add(:email, I18n.t('messages.errorDomain')) if email.end_with?('@' + domain)
+    end
+  end
+
+  def email_start_is_deny?
+    DENY_NAMES.each do |name|
+      errors.add(:email, I18n.t('messages.errorName')) if email.start_with?(name + '@')
     end
   end
 
