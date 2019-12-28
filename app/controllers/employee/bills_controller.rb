@@ -29,7 +29,9 @@ module Employee
     # POST /bills
     # POST /bills.json
     def create
-      BillsCreateJob.perform_later(@current_user, bill_params[:bill_type].to_i)
+      BillsCreateJob.perform_later(@current_user,
+                                   bill_params[:bill_type].to_i, nil,
+                                   BillRequest::APPROVED_NO)
 
       respond_to do |format|
         format.html { redirect_to employee_bills_path, notice: t('user.message.successOrderingBill') }

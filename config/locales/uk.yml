@@ -114,6 +114,8 @@ uk:
       percent: 'Процент'
     order: 'Замовити рахунок'
     ordering: 'Замовлення разунку'
+  bill_request:
+    auto_approved: 'Статус змінено автоматично!'
   navBar:
     countries: 'Countries'
     cities: 'Cities'

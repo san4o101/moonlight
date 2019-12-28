@@ -1,4 +1,10 @@
-<div class="card card-width shadow rounded <%= bill.credit? ? 'credit' : 'deposit' %>-card m-2">
+<div class="card card-width shadow rounded
+      <% if bill.bill_request.present? %>
+        <%= bill.bill_request.approved? ? 'border border-success' : 'border border-danger' %>
+      <% else %>
+        border border-danger
+      <% end %>
+      <%= bill.credit? ? 'credit' : 'deposit' %>-card m-2">
   <div class="card__face card--front">
     <div>
       <a class="text-white cursor-auto" href="#">
