@@ -2,29 +2,36 @@
   <div class="col-md-6">
     <div class="card shadow">
       <div class="card-header">
-        Bill information
+        <%= t('bill.field.card_info') %>
       </div>
       <div class="card-body">
-        <p><strong>Card number:</strong>
+        <p><strong><%= t('bill.field.card_number') %>:</strong>
           <span class="card-number"><%= card_number_format(@bill.card_number) %></span>
-          <i class="fa fa-sm fa-copy copy-icon ml-2"></i>
+          <i class="fa fa-sm fa-copy copy-icon ml-2 cursor-pointer"></i>
         </p>
-        <p><strong>Bill type:</strong>
+        <p><strong><%= t('bill.field.date_expired') %>:</strong>
+          <span class=""><%= card_date_expired(@bill.expired_bill_at) %></span>
+        </p>
+        <p><strong><%= t('bill.field.type') %>:</strong>
           <%= render partial: 'partials/bill_type', locals: { bill_type: @bill.bill_type } %>
         </p>
-        <p><strong>Amount:</strong>
+        <p><strong><%= t('bill.field.amount') %>:</strong>
           <span class=""><%= number_to_currency @bill.amount %></span>
         </p>
+        <% if @bill.credit? %>
+          <%= render(partial: 'employee/bills/partials/credit_info', locals: { bill: @bill }) %>
+        <% end %>
       </div>
     </div>
   </div>
   <div class="col-md-6">
     <div class="card shadow">
       <div class="card-header">
-        Bill transaction
+        <%= t('bill.field.card_transaction') %>
       </div>
       <div class="card-body">
-        <%= @bill.transactions %>
+        <%= render(partial: 'employee/bills/partials/transactions', collection: @bill.transactions) ||
+                t('action.empty') %>
       </div>
     </div>
   </div>

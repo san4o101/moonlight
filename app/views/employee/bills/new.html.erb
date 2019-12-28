@@ -4,6 +4,6 @@
     <%= t('bill.ordering') %>
   </div>
   <div class="card-body">
-    <%= render 'form', bill: @bill, model_url: employee_bills_path %>
+    <%= render 'employee/bills/partials/form', bill: @bill, model_url: employee_bills_path %>
   </div>
 </div>

@@ -64,6 +64,7 @@ uk:
     signIn: "Зареєструватись"
     logOut: "Вийти"
     settings: "Налаштування"
+    empty: 'Тут поки що порожньо'
   city:
     field:
       name: 'Назва'
@@ -97,6 +98,15 @@ uk:
       credit: 'Кредитний'
     field:
       type: 'Тип'
+      card_number: 'Номер рахунку'
+      amount: 'Залишок'
+      date_expired: 'Термін дії'
+      card_info: 'Інформація по рахунку'
+      card_transaction: 'Інформація по транзакціям'
+      replenishment_at: 'Останнє поповнення'
+      regular_replenishment_amount: 'Сума регулярного попоненя'
+      amount_limit: 'Ліміт'
+      percent: 'Процент'
     order: 'Замовити рахунок'
     ordering: 'Замовлення разунку'
   navBar:
