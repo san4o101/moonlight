@@ -21,7 +21,7 @@
   <div class="card__face card--back">
     <div class="card-body pt-2">
       <p class="mb-0 mt-0"><%= t('bill.field.amount') %>:
-        <span class="amount"><%= bill.amount %></span>
+        <span class="amount"><%= number_to_currency bill.amount %></span>
       </p>
       <% if bill.credit? %>
         <p class="mb-0 mt-0"><%= t('bill.field.percent') %>:
