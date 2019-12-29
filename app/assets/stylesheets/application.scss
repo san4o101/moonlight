@@ -3,6 +3,11 @@
 @import "font-awesome";
 @import "cursors";
 @import "card";
+@import "buttons";
+
+body {
+  background-color: #ebedef;
+}
 
 .alert-notice {
   color: #4e4b57;

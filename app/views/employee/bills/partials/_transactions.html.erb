@@ -1,1 +1,12 @@
-<%= transactions %>
+
+<tr>
+  <td>
+    <%= render(partial: 'partials/transaction_status', locals: { transactions: transactions }) %>
+  </td>
+  <td>
+    <%= transactions.amount %>
+  </td>
+  <td>
+    <%= transactions.created_at %>
+  </td>
+</tr>

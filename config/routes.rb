@@ -27,6 +27,9 @@ Rails.application.routes.draw do
     namespace :employee do
       get '/', to: 'home#index', as: :home
       resources :bills, only: %i[index show new create destroy]
+      get '/bills/:id/replenishment', to: 'bills#replenishment',
+                                      as: :bill_replenishment
+      patch '/bills/:id/replenishment', to: 'bills#replenishment_update'
     end
   end
 

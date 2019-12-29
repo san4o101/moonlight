@@ -67,9 +67,11 @@ uk:
     logOut: "Вийти"
     settings: "Налаштування"
     empty: 'Тут поки що порожньо'
+    replenishment: 'Поповнити'
   messages:
     errorDomain: 'Недопустимий домен поштової скриньки'
     errorName: "Недопустиме ім'я поштової скриньки"
+    success_rep_bill: 'Разунок поповнено успішно!'
   city:
     field:
       name: 'Назва'
@@ -112,10 +114,19 @@ uk:
       regular_replenishment_amount: 'Сума регулярного попоненя'
       amount_limit: 'Ліміт'
       percent: 'Процент'
+      sum: 'Сума поповнення'
     order: 'Замовити рахунок'
     ordering: 'Замовлення разунку'
+    replenishment: 'Поповнити'
   bill_request:
     auto_approved: 'Статус змінено автоматично!'
+  transaction:
+    field:
+      amount: 'Сума'
+      date: 'Дата'
+      status: 'Статус'
+    statuses:
+      i_replenishment: 'Поповнення'
   navBar:
     countries: 'Countries'
     cities: 'Cities'
@@ -140,8 +151,12 @@ uk:
       index: 'Мої рахунки'
       show: 'Інформація про рахунок'
       new: 'Замовлення рахунку'
+      replenishment: 'Поповнення'
     info:
       index: 'Моя інформація'
+  validation:
+    amountError: 'Не правильний формат введення!'
+    billTypeError: 'Не правильний тип!'
 
 
   views:

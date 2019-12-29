@@ -1,0 +1,8 @@
+<div class="card shadow">
+  <div class="card-header">
+    <%= t('breadcrumbs.bills.replenishment') %>
+  </div>
+  <div class="card-body">
+    <%= render 'employee/bills/partials/replenish_form', bill: @bill, model_url: employee_bill_replenishment_path %>
+  </div>
+</div>

@@ -15,6 +15,7 @@
 //= require turbolinks
 //= require jquery
 //= require components/jquery-ui.min.js
+//= require masks.js
 //= require jquery_ujs
 //= require popper
 //= require bootstrap
@@ -31,6 +32,8 @@ $(document).on('turbolinks:load', function() {
     let phone_group__div = $('.phone-group__div');
     let card = $('.card-width');
     let copy_icon = $('.copy-icon');
+    let fast_buttons__div = $('.fast-buttons');
+    let money = $('.money');
 
     user_city.autocomplete({
         source: function (request, response) {
@@ -91,6 +94,13 @@ $(document).on('turbolinks:load', function() {
         copy_text(number);
         setTooltip(_this, 'Номер карти скопійовано!');
         hideTooltip(_this);
+    });
+
+    fast_buttons__div.on('click', function (e) {
+        let target = $(e.target);
+        if(target.hasClass('btn')) {
+            money.val(target.data('value'));
+        }
     });
 
     /**

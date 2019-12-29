@@ -17,7 +17,10 @@ class Bill < ApplicationRecord
 
   validates :card_number, length: { is: 16 }
   validates :bill_type, inclusion: { in: [DEPOSIT_TYPE, CREDIT_TYPE],
-                                     message: 'Is not valid type' }
+                                     message: I18n.t('validation.billTypeError') }
+  validates :amount, numericality: true,
+                     format: { with: /\A\d{1,6}\.\d{1,2}/,
+                               message: I18n.t('validation.amountError') }
 
   def credit?
     bill_type == CREDIT_TYPE
