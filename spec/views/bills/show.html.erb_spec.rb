@@ -1,11 +1,14 @@
 require 'rails_helper'
 
-RSpec.describe "bills/show", type: :view do
+RSpec.describe 'employee/bills/show', type: :view do
   before(:each) do
-    @bill = assign(:bill, FactoryBot.create(:bill))
+    @user = assign(:user, FactoryBot.create(:user))
+    @bill = assign(:bill, FactoryBot.create(:bill, user: @user))
+    @recipient = assign(:recipient, FactoryBot.create(:new_number_bill, user: @user))
+    @transactions = assign(:transactions, FactoryBot.create(:transaction, sender_id: @bill.id, recipient_id: @recipient.id))
   end
 
-  it "renders attributes in <p>" do
+  it 'renders attributes' do
     render
   end
 end

@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :manager_notification do
-    users { nil }
-    bill { nil }
-    message { "MyString" }
+    admin_id { user.id }
+    bill_id { bill.id }
+    message { 'Test message' }
   end
 end

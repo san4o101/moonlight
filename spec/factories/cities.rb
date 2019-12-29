@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :city do
-    name { "MyString" }
-    country { 1 }
+    name { 'Kiev' }
+    country { country.id }
   end
 end

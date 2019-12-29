@@ -61,6 +61,22 @@ bundle install
 <b>Run all tests:</b>
 ```
 rspec spec
+bundle exex rspec spec
+```
+<b>Run model tests:</b>
+```
+rspec spec/models
+bundle exex rspec spec/models
+```
+<b>Run helpers tests:</b>
+```
+rspec spec/helpers
+bundle exex rspec spec/helpers
+```
+<b>Run jobs tests:</b>
+```
+rspec spec/jobs
+bundle exex rspec spec/jobs
 ```
 ### Start app
 coming soon...

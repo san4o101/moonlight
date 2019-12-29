@@ -1,13 +1,13 @@
 require 'rails_helper'
 
-RSpec.describe "bills/index", type: :view do
+RSpec.describe 'employee/bills/index', type: :view do
   before(:each) do
-    assign(:bills, [
-        FactoryBot.create_list(:bill, 2)
-    ])
+    @user = assign(:user, FactoryBot.create(:user))
+    assign(:bills, [FactoryBot.create(:bill, user: @user),
+                    FactoryBot.create(:new_number_bill, user: @user)])
   end
 
-  it "renders a list of bills" do
+  it 'renders a list of bills' do
     render
   end
 end

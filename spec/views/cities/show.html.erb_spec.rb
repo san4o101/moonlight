@@ -1,13 +1,14 @@
 require 'rails_helper'
 
-RSpec.describe "cities/show", type: :view do
+RSpec.describe 'admin/settings/cities/show', type: :view do
   before(:each) do
-    @city = assign(:city, FactoryBot.create(:city))
+    @country = assign(:country, FactoryBot.create(:country))
+    @city = assign(:city, FactoryBot.create(:city, country: @country))
   end
 
-  it "renders attributes in <p>" do
+  it 'renders attributes in <p>' do
     render
-    expect(rendered).to match(/MyString/)
-    expect(rendered).to match(1)
+    expect(rendered).to match(/Kiev/)
+    expect(rendered).to match(/Ukraine/)
   end
 end

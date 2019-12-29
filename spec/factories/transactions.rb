@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :transaction do
-    sender_id { "" }
-    recipient_id { "" }
-    amount { "9.99" }
+    sender_id { sender.id }
+    recipient_id { recipient.id }
+    amount { 100 }
     status { 1 }
   end
 end

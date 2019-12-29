@@ -2,6 +2,12 @@ require 'rails_helper'
 
 describe User do
 
+  context 'associations' do
+    it { should have_many(:bills) }
+    it { should have_many(:manager_notifications) }
+    it { should have_many(:bill_requests) }
+  end
+
   context '.admins' do
     before do
       @users = FactoryBot.create_list(:user, 3)
@@ -32,6 +38,28 @@ describe User do
       record.valid?
       record.errors[:first_name][0].nil?
       record.errors[:last_name][0].nil?
+    end
+  end
+
+  context '#phonde_validation' do
+    it 'phone short not valid' do
+      test = User.new(phone: '222222')
+      expect(test).to_not be_valid
+    end
+    it 'phone long not valid' do
+      test = User.new(phone: '222222222222222222')
+      expect(test).to_not be_valid
+    end
+  end
+
+  context '#email_validation' do
+    it 'email start "test" not valid' do
+      test = User.new(email: 'test.gmail.com')
+      expect(test).to_not be_valid
+    end
+    it 'email end "test.com" not valid' do
+      test = User.new(email: 'dasdasd@test.com')
+      expect(test).to_not be_valid
     end
   end
 

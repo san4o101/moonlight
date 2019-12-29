@@ -15,9 +15,9 @@
 class User < ApplicationRecord
 
   belongs_to :city, optional: true, foreign_key: :cities_id
-  has_many :bills, -> { order_by_id }, foreign_key: 'users_id'
-  has_many :manager_notifications, foreign_key: 'admin_id'
-  has_many :bill_requests
+  has_many :bills, -> { order_by_id }, foreign_key: :users_id
+  has_many :manager_notifications, foreign_key: :admin_id
+  has_many :bill_requests, foreign_key: :admin_id
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

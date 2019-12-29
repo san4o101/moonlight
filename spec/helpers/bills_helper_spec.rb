@@ -11,5 +11,17 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe BillsHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  let(:user) { FactoryBot.create(:user) }
+  let(:bill) { FactoryBot.create(:bill, user: user) }
+
+  context 'test helpers' do
+    it 'card expired date format' do
+      expect(card_date_expired(bill.expired_bill_at)).to eq '12/2024'
+    end
+    it 'card number format' do
+      expect(card_number_format(bill.card_number)).to eq '0000 0000 0000 0000'
+    end
+  end
+
 end

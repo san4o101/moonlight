@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :country do
-    name { "Name" }
-    short_code { "Short Code" }
-    phone_code { "Phone Code" }
-    nickname { "Nickname" }
+    name { 'Ukraine' }
+    short_code { 'UA' }
+    phone_code { '380' }
+    nickname { 'UKRAINE' }
   end
 end
