@@ -9,12 +9,7 @@
       </div>
     </div>
   </div>
-  <div class="fast-buttons d-inline">
-    <button type="button" class="btn btn-outline-dark btn-circle" data-value="10.00">10</button>
-    <button type="button" class="btn btn-outline-dark btn-circle" data-value="20.00">20</button>
-    <button type="button" class="btn btn-outline-dark btn-circle" data-value="50.00">50</button>
-    <button type="button" class="btn btn-outline-dark btn-circle" data-value="100.00">100</button>
-  </div>
+  <%= render(partial: 'partials/fast_money_buttons') %>
   <div class="actions mt-3">
     <%= form.submit t('action.replenishment'), class: 'btn btn-success mb-3' %>
   </div>

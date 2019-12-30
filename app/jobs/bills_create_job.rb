@@ -14,7 +14,7 @@ class BillsCreateJob < ApplicationJob
     card_number = generate_number while Bill.find_by_card_number(card_number)
 
     bill = Bill.new(users_id: user.id, bill_type: type_bill,
-                    card_number: card_number)
+                    card_number: card_number, amount: 0)
     throw(:abort) unless bill.valid?
 
     job.arguments[2] = card_number

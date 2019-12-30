@@ -4,7 +4,7 @@ module ApplicationHelper
     form.text_field(field, class: "form-control #{if user.errors[:birthday].any?
                                                     ' is-invalid '
                                                   end }",
-                           placeholder: 'dd.mm.yyyy',
+                           placeholder: t('placeholders.birthday'),
                            data: { provide: 'datepicker',
                                    'date-format': 'dd.mm.yyyy' }).html_safe
   end

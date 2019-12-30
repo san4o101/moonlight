@@ -46,7 +46,7 @@ uk:
       confirmEmail: "Перевірте свою пошту!"
     message:
       notAuthorized: "Ви не уповноважені виконувати цю дію."
-      successUpdate: "Користувач був успішно відрудагований."
+      successUpdate: "Користувач був успішно відредагований."
       successCreate: 'Користувач був успішно створений.'
       successDestroy: 'Користувач був успішно видалений.'
       errorSeeOtherPage: "Ви не можете дивитись інформацію інших! Перенаправлення на Ваш профіль!"
@@ -68,10 +68,16 @@ uk:
     settings: "Налаштування"
     empty: 'Тут поки що порожньо'
     replenishment: 'Поповнити'
+    warning: 'Попередження'
   messages:
     errorDomain: 'Недопустимий домен поштової скриньки'
     errorName: "Недопустиме ім'я поштової скриньки"
     success_rep_bill: 'Разунок поповнено успішно!'
+  placeholders:
+    first_name: "Введіть ім'я"
+    last_name: 'Введіть фалімію'
+    second_name: 'Введіть по-батькові'
+    birthday: 'дд.мм.рррр'
   city:
     field:
       name: 'Назва'

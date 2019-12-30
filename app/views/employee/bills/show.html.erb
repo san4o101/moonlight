@@ -10,7 +10,7 @@
       </div>
       <div class="card-body">
         <p><strong><%= t('bill.field.card_number') %>:</strong>
-          <span class="card-number"><%= card_number_format(@bill.card_number) %></span>
+          <span class="card-number noselect"><%= card_number_format(@bill.card_number) %></span>
           <i class="fa fa-sm fa-copy copy-icon ml-2 cursor-pointer"></i>
         </p>
         <p><strong><%= t('bill.field.date_expired') %>:</strong>
@@ -42,8 +42,7 @@
         </tr>
         </thead>
         <tbody class="text-center">
-          <%= render(partial: 'employee/bills/partials/transactions', collection: @transactions) ||
-                  t('action.empty') %>
+          <%= render(partial: 'employee/bills/partials/transactions', collection: @transactions) %>
         </tbody>
       </table>
       <div class="d-flex justify-content-center">

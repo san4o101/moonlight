@@ -3,7 +3,7 @@
      href="<%= info_path(pundit_user) %>">
     <%= t('user.field.myInfo') %>
     <% if pundit_user.full_name? %>
-      <span class="badge badge-danger">Warning!</span>
+      <span class="badge badge-danger"><%= t('action.warning') %>!</span>
     <% end %>
   </a>
 </li>

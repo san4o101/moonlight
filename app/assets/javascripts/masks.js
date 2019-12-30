@@ -3,7 +3,7 @@
 
 
 $(document).on('turbolinks:load', function() {
-    $('.money').mask('###0.00', {
+    $('.money').mask('000000.00', {
         reverse: true,
         placeholder: "0.00",
     });
