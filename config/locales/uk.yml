@@ -185,6 +185,10 @@ uk:
   validation:
     amountError: 'Не правильний формат введення!'
     billTypeError: 'Не правильний тип!'
+  mails:
+    update_bill:
+      subject: 'Зміни по рахунку'
+      message: "Ваш рахунок '%{card}' було змінено Адміністратором '%{admin}'!"
 
 
   views:

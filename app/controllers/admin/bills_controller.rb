@@ -21,6 +21,7 @@ module Admin
     def update
       respond_to do |format|
         if @bill.update(bill_params)
+          UpdateUserBillJob.perform_later(@bill, pundit_user)
           format.html { redirect_to admin_user_bill_path(@user, @bill), notice: t('bill.messages.successUpdated') }
           format.json { render :show, status: :ok, location: admin_user_bill_path(@user, @bill) }
         else
