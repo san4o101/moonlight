@@ -4,29 +4,7 @@
 </div>
 <div class="row">
   <div class="col-md-5 mb-3">
-    <div class="card shadow sticky-top">
-      <div class="card-header">
-        <strong><%= t('bill.field.card_info') %></strong>
-      </div>
-      <div class="card-body">
-        <p><strong><%= t('bill.field.card_number') %>:</strong>
-          <span class="card-number noselect"><%= card_number_format(@bill.card_number) %></span>
-          <i class="fa fa-sm fa-copy copy-icon ml-2 cursor-pointer"></i>
-        </p>
-        <p><strong><%= t('bill.field.date_expired') %>:</strong>
-          <span class=""><%= card_date_expired(@bill.expired_bill_at) %></span>
-        </p>
-        <p><strong><%= t('bill.field.type') %>:</strong>
-          <%= render partial: 'partials/bill_type', locals: { bill_type: @bill.bill_type } %>
-        </p>
-        <p><strong><%= t('bill.field.amount') %>:</strong>
-          <span class=""><%= number_to_currency @bill.amount %></span>
-        </p>
-        <% if @bill.credit? %>
-          <%= render(partial: 'employee/bills/partials/credit_info', locals: { bill: @bill }) %>
-        <% end %>
-      </div>
-    </div>
+    <%= render(partial: 'partials/bills/bill_info', locals: { bill: @bill }) %>
   </div>
   <div class="col-md-7">
     <div class="card shadow">
@@ -35,7 +13,8 @@
         <%= link_to t('bill.all_transactions'), employee_bill_transactions_path(@bill),
                     class: 'btn btn-sm btn-outline-secondary float-right' %>
       </div>
-      <%= render(partial: 'partials/transactions', locals: { transactions: @transactions }) %>
+        <%= render(partial: 'partials/transactions/list', locals: { transactions: @transactions,
+                                                               user: @current_user }) %>
     </div>
   </div>
 </div>

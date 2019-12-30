@@ -24,9 +24,6 @@ module Employee
       @bill = Bill.new
     end
 
-    # GET /bills/1/edit
-    #def edit; end
-
     # POST /bills
     # POST /bills.json
     def create
@@ -39,20 +36,6 @@ module Employee
         format.json { render :show, status: :created, location: employee_bills_path }
       end
     end
-
-    # PATCH/PUT /bills/1
-    # PATCH/PUT /bills/1.json
-    #def update
-    #  respond_to do |format|
-    #    if @bill.update(bill_params)
-    #      format.html { redirect_to employee_bills_path, notice: t('user.message.successUpdateBill') }
-    #      format.json { render :show, status: :ok, location: employee_bills_path }
-    #    else
-    #      format.html { render :edit }
-    #      format.json { render json: @bill.errors, status: :unprocessable_entity }
-    #    end
-    #  end
-    #end
 
     # DELETE /bills/1
     # DELETE /bills/1.json

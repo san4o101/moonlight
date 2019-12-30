@@ -1,0 +1,23 @@
+<div class="card shadow sticky-top">
+  <div class="card-header">
+    <strong><%= t('bill.field.card_info') %></strong>
+  </div>
+  <div class="card-body">
+    <p><strong><%= t('bill.field.card_number') %>:</strong>
+      <span class="card-number noselect"><%= card_number_format(bill.card_number) %></span>
+      <i class="fa fa-sm fa-copy copy-icon ml-2 cursor-pointer"></i>
+    </p>
+    <p><strong><%= t('bill.field.date_expired') %>:</strong>
+      <span class=""><%= card_date_expired(bill.expired_bill_at) %></span>
+    </p>
+    <p><strong><%= t('bill.field.type') %>:</strong>
+      <%= render partial: 'partials/bill_type', locals: { bill_type: bill.bill_type } %>
+    </p>
+    <p><strong><%= t('bill.field.amount') %>:</strong>
+      <span class=""><%= number_to_currency bill.amount %></span>
+    </p>
+    <% if bill.credit? %>
+      <%= render(partial: 'partials/bills/credit_info', locals: { bill: bill }) %>
+    <% end %>
+  </div>
+</div>

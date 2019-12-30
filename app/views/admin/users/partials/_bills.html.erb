@@ -7,7 +7,7 @@
       <%= bill.credit? ? 'credit' : 'deposit' %>-card m-2">
   <div class="card__face card--front">
     <div>
-      <a class="text-white cursor-auto" href="#">
+      <a class="text-white cursor-auto" href="<%= admin_user_bill_path(@user, bill) %>">
         <i class="fa fa-sm fa-sign-in open-card float-left ml-3 mt-2"></i>
       </a>
       <i class="fa fa-sm fa-copy copy-icon float-right mr-3 mt-2 cursor-auto"></i>

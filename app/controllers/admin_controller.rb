@@ -18,4 +18,10 @@ class AdminController < ApplicationController
   def admin_user!
     render_error_page(403, :forbidden) unless pundit_user.admin_role?
   end
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_user
+    params[:id] = params[:user_id] unless params[:id].present?
+    @user = User.find(params[:id])
+  end
 end

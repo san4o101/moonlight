@@ -7,6 +7,10 @@
   </tr>
   </thead>
   <tbody class="text-center">
-    <%= render(partial: 'employee/bills/partials/transactions', collection: transactions) %>
+    <% if user.user_role? %>
+      <%= render(partial: 'employee/bills/partials/transactions', collection: transactions) %>
+    <% else %>
+      <%= render(partial: 'admin/bills/partials/transactions', collection: transactions) %>
+    <% end %>
   </tbody>
 </table>

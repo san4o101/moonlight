@@ -21,7 +21,7 @@
       </td>
       <td><%= @transaction.amount %></td>
       <td>
-        <%= render(partial: 'partials/transaction_status', locals: { transactions: @transaction }) %>
+        <%= render(partial: 'partials/transactions/status', locals: { transaction: @transaction }) %>
       </td>
       <td><%= @transaction.created_at %></td>
     </tr>
