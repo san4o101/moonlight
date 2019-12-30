@@ -26,6 +26,7 @@ class EmployeeController < ApplicationController
   # Used only after set_user
   def my_bill?
     my_bills_id = Bill.my_bills(@current_user.id).pluck(:id)
+    params[:id] = params[:bill_id] unless params[:id].present?
     unless my_bills_id.include?(params[:id].to_i)
       render_error_page(403, :forbidden)
     end

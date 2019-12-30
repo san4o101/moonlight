@@ -95,21 +95,22 @@ module Admin
     def password_change
       if @user.update(password_params)
         if InfoService.new.check_users(@user.id, session[:user_id])
-          flash[:warning] = "Enter you new password"
+          flash[:warning] = I18n.t('messages.enter_password')
           session.clear
           redirect_to root_path
         else
-          flash[:success] = "Password updated!"
+          flash[:success] = I18n.t('messages.password_updated')
           redirect_to admin_user_path(@user)
         end
       else
-        render 'admin/settings/users/password'
+        render :update
       end
     end
 
     private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
+      params[:id] = params[:user_id] unless params[:id].present?
       @user = User.find(params[:id])
     end
 
@@ -126,7 +127,7 @@ module Admin
 
     def render_breadcrumbs
       add_breadcrumb I18n.t('breadcrumbs.users.show', user: @user.full_name),
-                     :admin_user_path
+                     (proc { admin_user_path(@user.id) })
     end
   end
 end

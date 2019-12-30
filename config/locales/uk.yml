@@ -73,6 +73,8 @@ uk:
     errorDomain: 'Недопустимий домен поштової скриньки'
     errorName: "Недопустиме ім'я поштової скриньки"
     success_rep_bill: 'Разунок поповнено успішно!'
+    enter_password: 'Введіть свій новий пароль'
+    password_updated: 'Пароль успішно змінено!'
   placeholders:
     first_name: "Введіть ім'я"
     last_name: 'Введіть фалімію'
@@ -116,6 +118,7 @@ uk:
       date_expired: 'Термін дії'
       card_info: 'Інформація по рахунку'
       card_transaction: 'Інформація по транзакціям'
+      card_new_transaction: 'Інформація по 15 новим транзакціям'
       replenishment_at: 'Останнє поповнення'
       regular_replenishment_amount: 'Сума регулярного попоненя'
       amount_limit: 'Ліміт'

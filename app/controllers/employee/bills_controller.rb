@@ -17,7 +17,7 @@ module Employee
     # GET /bills/1.json
     def show
       render_breadcrumbs
-      @transactions = @bill.transactions.order_by_date.page params[:page]
+      @transactions = @bill.transactions.order_by_date.limit(15)
     end
 
     # GET /bills/new
@@ -78,12 +78,12 @@ module Employee
       BillsService.new.replenishment_bill(@bill, Transaction::STATUS_I_REPLENISHMENT,
                                           replenishment_params[:amount].to_f)
       respond_to do |format|
-        format.html { redirect_to employee_bill_url, notice: t('messages.success_rep_bill') }
-        format.json { render :replenishment, status: :ok, location: employee_bill_url }
+        format.html { redirect_to employee_bill_url(@bill), notice: t('messages.success_rep_bill') }
+        format.json { render :replenishment, status: :ok, location: employee_bill_url(@bill) }
       end
     rescue ActiveRecord::RecordInvalid => e
       respond_to do |format|
-        format.html { redirect_to employee_bill_replenishment_url, notice: e.message }
+        format.html { redirect_to employee_bill_replenishment_url(@bill), notice: e.message }
         format.json { render json: @bill.errors, status: :unprocessable_entity }
       end
     end
@@ -91,6 +91,7 @@ module Employee
     private
     # Use callbacks to share common setup or constraints between actions.
     def set_bill
+      params[:id] = params[:bill_id] unless params[:id].present?
       @bill = Bill.find(params[:id])
     end
 
@@ -106,7 +107,8 @@ module Employee
     end
 
     def render_breadcrumbs
-      add_breadcrumb I18n.t('breadcrumbs.bills.show'), :employee_bill_path
+      add_breadcrumb I18n.t('breadcrumbs.bills.show'),
+                     (proc { employee_bill_path(@bill.id) })
     end
   end
 

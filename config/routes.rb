@@ -13,10 +13,11 @@ Rails.application.routes.draw do
     namespace :admin do
       get '/', to: 'home#index', as: :home
 
-      resources :users, except: %i[new create]
-      get '/users/:id/password', to: 'users#password', as: :user_password
-      patch '/users/:id/password', to: 'users#password_change',
-                                   as: :user_change_password
+      resources :users, except: %i[new create] do
+        get '/password', to: 'users#password', as: :password
+        patch '/password', to: 'users#password_change',
+                           as: :change_password
+      end
 
       namespace :settings do
         resources :cities
@@ -26,10 +27,11 @@ Rails.application.routes.draw do
 
     namespace :employee do
       get '/', to: 'home#index', as: :home
-      resources :bills, only: %i[index show new create destroy]
-      get '/bills/:id/replenishment', to: 'bills#replenishment',
-                                      as: :bill_replenishment
-      patch '/bills/:id/replenishment', to: 'bills#replenishment_update'
+      resources :bills, only: %i[index show new create destroy] do
+        get 'replenishment', to: 'bills#replenishment',
+                             as: :bill_replenishment
+        patch '/replenishment', to: 'bills#replenishment_update'
+      end
     end
   end
 

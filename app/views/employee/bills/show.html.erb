@@ -31,9 +31,9 @@
   <div class="col-md-7">
     <div class="card shadow">
       <div class="card-header">
-        <strong><%= t('bill.field.card_transaction') %></strong>
+        <strong><%= t('bill.field.card_new_transaction') %></strong>
       </div>
-      <table class="table table-striped table-bordered">
+      <table class="table table-striped table-bordered mb-0">
         <thead class="text-center">
         <tr>
           <th><%= t('transaction.field.status') %></th>
@@ -45,9 +45,6 @@
           <%= render(partial: 'employee/bills/partials/transactions', collection: @transactions) %>
         </tbody>
       </table>
-      <div class="d-flex justify-content-center">
-        <%= paginate @transactions %>
-      </div>
     </div>
   </div>
 </div>
