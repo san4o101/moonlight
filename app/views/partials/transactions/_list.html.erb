@@ -9,7 +9,7 @@
   <tbody class="text-center">
     <% if user.user_role? %>
       <%= render(partial: 'employee/bills/partials/transactions', collection: transactions) %>
-    <% else %>
+    <% elsif user.admin_role? %>
       <%= render(partial: 'admin/bills/partials/transactions', collection: transactions) %>
     <% end %>
   </tbody>

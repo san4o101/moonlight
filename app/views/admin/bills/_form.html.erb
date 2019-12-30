@@ -1,0 +1,17 @@
+<%= form_with(model: bill, url: model_url, local: true,
+              html: { autocomplete: 'off' }) do |form| %>
+
+  <div class="form-group">
+    <%= form.label :expired_bill_at, t('bill.field.date_expired') %>
+    <%= datepicker(form, :expired_bill_at, bill) %>
+    <% if bill.errors[:expired_bill_at].any? %>
+      <span class="invalid-feedback">
+        <strong><%= bill.errors.messages[:expired_bill_at][0] %></strong>
+      </span>
+    <% end %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit button_name, class: 'btn btn-success mb-3' %>
+  </div>
+<% end %>

@@ -17,7 +17,7 @@ Rails.application.routes.draw do
         get '/password', to: 'users#password', as: :password
         patch '/password', to: 'users#password_change',
                            as: :change_password
-        resources :bills, only: %i[show edit]
+        resources :bills, only: %i[show edit update]
       end
 
       namespace :settings do

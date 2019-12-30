@@ -69,6 +69,10 @@ class User < ApplicationRecord
     "#{last_name} #{first_name} #{second_name}"
   end
 
+  def full_name_aliases
+    "#{last_name} #{first_name.chr}. #{second_name.chr}."
+  end
+
   def gender_name
     return I18n.t('user.gender.male') if gender == GENDER_MALE
     I18n.t('user.gender.female') if gender == GENDER_FEMALE

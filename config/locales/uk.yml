@@ -108,6 +108,9 @@ uk:
     successUpdate: 'Країна була успішно відредагована.'
     successDestroy: 'Країна була успішно видалена.'
   bill:
+    actions:
+      edit_bill: 'Редагувати рухнок'
+      edit_request: 'Редагувати статус'
     types:
       deposit: 'Депозитний'
       credit: 'Кредитний'
@@ -129,6 +132,8 @@ uk:
     replenishment: 'Поповнити'
     transactions: 'Транзакції'
     all_transactions: 'Всі транзакції'
+    messages:
+      successUpdated: 'Рахунок було успішно оновлено!'
   bill_request:
     auto_approved: 'Статус змінено автоматично!'
   transaction:
@@ -146,6 +151,10 @@ uk:
     cities: 'Cities'
   breadcrumbs:
     home: 'Головна'
+    actions:
+      edit: 'Редагування'
+      save: 'Збереження'
+      destroy: 'Видалення'
     city:
       index: 'Всі міста'
       edit: "Редагування міста"
@@ -167,6 +176,7 @@ uk:
       show: 'Інформація про рахунок'
       new: 'Замовлення рахунку'
       replenishment: 'Поповнення'
+      edit: 'Редагування'
     transactions:
       index: 'Мої транзакції'
       show: 'Інформація по транзакції'

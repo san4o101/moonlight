@@ -121,7 +121,7 @@ module Admin
     end
 
     def render_breadcrumbs
-      add_breadcrumb I18n.t('breadcrumbs.users.show', user: @user.full_name),
+      add_breadcrumb I18n.t('breadcrumbs.users.show', user: @user.full_name_aliases),
                      (proc { admin_user_path(@user.id) })
     end
   end

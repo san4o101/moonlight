@@ -1,0 +1,9 @@
+
+<div class="card shadow">
+  <div class="card-header">
+    <%= t('user.action.edit') %>
+  </div>
+  <div class="card-body">
+    <%= render 'form', bill: @bill, model_url: admin_user_bill_path(@user), button_name: t('action.edit') %>
+  </div>
+</div>
