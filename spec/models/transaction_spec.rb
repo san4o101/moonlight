@@ -8,7 +8,8 @@ RSpec.describe Transaction, type: :model do
   let(:transaction) { FactoryBot.create(:transaction, sender_id: sender.id, recipient_id: recipient.id) }
 
   context 'associations' do
-    it { should belong_to(:bill) }
+    it { should belong_to(:sender) }
+    it { should belong_to(:recipient) }
   end
 
   context '#check_validation' do

@@ -7,7 +7,8 @@ RSpec.describe Bill, type: :model do
 
   context 'associations' do
     it { should belong_to(:user) }
-    it { should have_many(:transactions) }
+    it { should have_many(:sender) }
+    it { should have_many(:recipient) }
     it { should have_many(:manager_notifications) }
     it { should have_one(:bill_request) }
   end
