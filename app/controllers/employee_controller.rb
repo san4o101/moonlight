@@ -32,5 +32,14 @@ class EmployeeController < ApplicationController
     end
   end
 
+  def my_transaction?(bill_id, transaction_id)
+    my_transactions_id = Transaction
+                         .where('sender_id = :id or recipient_id = :id', id: bill_id)
+                         .pluck(:id)
+    unless my_transactions_id.include?(transaction_id)
+      render_error_page(403, :forbidden)
+    end
+  end
+
 end
 

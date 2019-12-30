@@ -27,22 +27,13 @@ module Employee
 
     def set_transaction
       @transaction = Transaction.includes(:sender, :recipient).find(params[:id])
-      my_transaction?
+      my_transaction?(@bill.id, @transaction.id)
     end
 
     def render_breadcrumbs
       add_breadcrumb I18n.t('breadcrumbs.bills.index'), :employee_bills_path
       add_breadcrumb I18n.t('breadcrumbs.bills.show'),
                      (proc { employee_bill_path(@bill.id) })
-    end
-
-    def my_transaction?
-      my_transactions_id = Transaction
-                           .where('sender_id = :id or recipient_id = :id', id: @bill.id)
-                           .pluck(:id)
-      unless my_transactions_id.include?(params[:id].to_i)
-        render_error_page(403, :forbidden)
-      end
     end
   end
 
