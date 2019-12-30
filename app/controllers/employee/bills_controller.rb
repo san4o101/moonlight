@@ -2,8 +2,6 @@ module Employee
 
   class BillsController < EmployeeController
     before_action :set_user
-    before_action :my_bill?, only: %i[show destroy replenishment
-                                      replenishment_update]
     before_action :set_bill, only: %i[show destroy replenishment
                                       replenishment_update]
 
@@ -93,6 +91,7 @@ module Employee
     def set_bill
       params[:id] = params[:bill_id] unless params[:id].present?
       @bill = Bill.find(params[:id])
+      my_bill? @bill.id
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

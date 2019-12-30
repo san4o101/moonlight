@@ -1,9 +1,9 @@
 
 <div class="buttons row">
-  <%= link_to t('bill.replenishment'), employee_bill_replenishment_path(@bill), class: 'btn btn-success mb-3' %>
+  <%= link_to t('bill.replenishment'), employee_bill_replenishment_path(@bill), class: 'btn btn-success mb-3 mr-2' %>
 </div>
 <div class="row">
-  <div class="col-md-5">
+  <div class="col-md-5 mb-3">
     <div class="card shadow sticky-top">
       <div class="card-header">
         <strong><%= t('bill.field.card_info') %></strong>
@@ -32,19 +32,10 @@
     <div class="card shadow">
       <div class="card-header">
         <strong><%= t('bill.field.card_new_transaction') %></strong>
+        <%= link_to t('bill.all_transactions'), employee_bill_transactions_path(@bill),
+                    class: 'btn btn-sm btn-outline-secondary float-right' %>
       </div>
-      <table class="table table-striped table-bordered mb-0">
-        <thead class="text-center">
-        <tr>
-          <th><%= t('transaction.field.status') %></th>
-          <th><%= t('transaction.field.amount') %></th>
-          <th><%= t('transaction.field.date') %></th>
-        </tr>
-        </thead>
-        <tbody class="text-center">
-          <%= render(partial: 'employee/bills/partials/transactions', collection: @transactions) %>
-        </tbody>
-      </table>
+      <%= render(partial: 'partials/transactions', locals: { transactions: @transactions }) %>
     </div>
   </div>
 </div>

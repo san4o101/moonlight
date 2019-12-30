@@ -86,11 +86,17 @@ $(document).on('turbolinks:load', function() {
 
     copy_icon.on('click', function (e) {
         let _this = $(this);
+        let card = _this.data('card');
+        if (typeof card !== 'undefined')
+            card = _this.data('card');
+        else
+            card = '';
         _this.tooltip({
             trigger: 'click',
             placement: 'top'
         });
-        let number = _this.closest('.card').find('span.card-number').text().replace(/\s/g, '');
+        let number = _this.closest('.card').find('span.card-number' + card)
+            .text().replace(/\s/g, '');
         copy_text(number);
         setTooltip(_this, 'Номер карти скопійовано!');
         hideTooltip(_this);

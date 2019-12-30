@@ -15,7 +15,7 @@ RSpec.describe Transaction, type: :model do
     it 'is valid with all attributes' do
       expect(transaction).to be_valid
     end
-    it 'is i replenishment transaction' do
+    it 'is i replenishment transactions' do
       expect(transaction.i_replenishment?).to be true
     end
   end

@@ -127,6 +127,8 @@ uk:
     order: 'Замовити рахунок'
     ordering: 'Замовлення разунку'
     replenishment: 'Поповнити'
+    transactions: 'Транзакції'
+    all_transactions: 'Всі транзакції'
   bill_request:
     auto_approved: 'Статус змінено автоматично!'
   transaction:
@@ -134,6 +136,9 @@ uk:
       amount: 'Сума'
       date: 'Дата'
       status: 'Статус'
+      information: "Переглянути інформацію по транзкації #%{id}"
+      sender: 'Відправник'
+      recipient: 'Отримувач'
     statuses:
       i_replenishment: 'Поповнення'
   navBar:
@@ -161,6 +166,9 @@ uk:
       show: 'Інформація про рахунок'
       new: 'Замовлення рахунку'
       replenishment: 'Поповнення'
+    transactions:
+      index: 'Мої транзакції'
+      show: 'Інформація по транзакції'
     info:
       index: 'Моя інформація'
   validation:

@@ -1,0 +1,30 @@
+<div class="card shadow">
+  <table class="table table-striped table-bordered text-center mb-0">
+    <thead>
+    <tr>
+      <th><%= t('transaction.field.sender') %></th>
+      <th><%= t('transaction.field.recipient') %></th>
+      <th><%= t('transaction.field.amount') %></th>
+      <th><%= t('transaction.field.status') %></th>
+      <th><%= t('transaction.field.date') %></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="card-number-sender noselect"><%= card_number_format(@transaction.sender.card_number) %></span>
+        <i class="fa fa-sm fa-copy copy-icon ml-2 cursor-pointer" data-card="-sender"></i>
+      </td>
+      <td>
+        <span class="card-number-recipient noselect"><%= card_number_format(@transaction.recipient.card_number) %></span>
+        <i class="fa fa-sm fa-copy copy-icon ml-2 cursor-pointer" data-card="-recipient"></i>
+      </td>
+      <td><%= @transaction.amount %></td>
+      <td>
+        <%= render(partial: 'partials/transaction_status', locals: { transactions: @transaction }) %>
+      </td>
+      <td><%= @transaction.created_at %></td>
+    </tr>
+    </tbody>
+  </table>
+</div>

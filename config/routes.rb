@@ -31,6 +31,8 @@ Rails.application.routes.draw do
         get 'replenishment', to: 'bills#replenishment',
                              as: :bill_replenishment
         patch '/replenishment', to: 'bills#replenishment_update'
+
+        resources :transactions, only: %i[index show]
       end
     end
   end

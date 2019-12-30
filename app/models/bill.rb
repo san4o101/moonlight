@@ -1,7 +1,12 @@
 class Bill < ApplicationRecord
   belongs_to :user, foreign_key: :users_id
-  has_many :transactions, foreign_key: :sender_id
-  has_many :transactions, foreign_key: :recipient_id
+  has_many :transactions, lambda { |bill|
+    unscope(:where)
+      .where('sender_id = :id OR recipient_id = :id',
+             id: bill.id)
+  }
+  has_many :sender, class_name: :Transaction, foreign_key: :sender_id
+  has_many :recipient, class_name: :Transaction, foreign_key: :recipient_id
   has_many :manager_notifications
   has_one :bill_request
 
