@@ -66,11 +66,15 @@ class User < ApplicationRecord
   end
 
   def full_name
-    "#{last_name} #{first_name} #{second_name}"
+    "#{last_name.present? ? last_name : ''}
+    #{first_name.present? ? first_name : ''}
+    #{second_name.present? ? second_name : ''}"
   end
 
   def full_name_aliases
-    "#{last_name} #{first_name.chr}. #{second_name.chr}."
+    "#{last_name.present? ? last_name : ''}
+    #{first_name.present? ? first_name.chr + '.' : ''}
+    #{second_name.present? ? second_name.chr + '.' : ''}"
   end
 
   def gender_name
