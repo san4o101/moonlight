@@ -60,8 +60,9 @@ class InfoController < ApplicationController
   def setup_breadcrumbs
     if @current_user.user_role?
       add_breadcrumb I18n.t('breadcrumbs.home'), :employee_home_path
-    else
+    elsif @current_user.admin_role?
       add_breadcrumb I18n.t('breadcrumbs.home'), :admin_home_path
+      admin_notifications_count
     end
   end
 

@@ -6,6 +6,7 @@
 class AdminController < ApplicationController
 
   before_action :admin_user!
+  before_action :admin_notifications_count
   layout 'admin'
 
   add_breadcrumb I18n.t('breadcrumbs.home'), :admin_home_path

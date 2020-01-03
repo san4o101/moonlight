@@ -71,4 +71,8 @@ class ApplicationController < ActionController::Base
     render_error_page(500, :internal_server_error)
   end
 
+  def admin_notifications_count
+    @count_notifications = ManagerNotification.my_active(pundit_user.id).count
+  end
+
 end
