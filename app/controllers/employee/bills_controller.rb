@@ -2,8 +2,7 @@ module Employee
 
   class BillsController < EmployeeController
     before_action :set_user
-    before_action :set_bill, only: %i[show destroy replenishment
-                                      replenishment_update]
+    before_action :set_bill, only: %i[show destroy]
 
     add_breadcrumb I18n.t('breadcrumbs.bills.index'), :employee_bills_path
 
@@ -47,28 +46,6 @@ module Employee
       end
     end
 
-    # GET /bills/1/replenishment
-    def replenishment
-      render_breadcrumbs
-      add_breadcrumb I18n.t('breadcrumbs.bills.replenishment'),
-                     :employee_bill_replenishment_path
-    end
-
-    # PATCH /bills/1/replenishment
-    def replenishment_update
-      BillsService.new.replenishment_bill(@bill, Transaction::STATUS_I_REPLENISHMENT,
-                                          replenishment_params[:amount].to_f)
-      respond_to do |format|
-        format.html { redirect_to employee_bill_url(@bill), notice: t('messages.success_rep_bill') }
-        format.json { render :replenishment, status: :ok, location: employee_bill_url(@bill) }
-      end
-    rescue ActiveRecord::RecordInvalid => e
-      respond_to do |format|
-        format.html { redirect_to employee_bill_replenishment_url(@bill), notice: e.message }
-        format.json { render json: @bill.errors, status: :unprocessable_entity }
-      end
-    end
-
     private
     # Use callbacks to share common setup or constraints between actions.
     def set_bill
@@ -81,11 +58,6 @@ module Employee
     def bill_params
       params[:bill][:users_id] = pundit_user.id
       params.require(:bill).permit(:bill_type, :users_id)
-    end
-
-    def replenishment_params
-      params[:bill][:users_id] = pundit_user.id
-      params.require(:bill).permit(:users_id, :amount)
     end
 
     def render_breadcrumbs

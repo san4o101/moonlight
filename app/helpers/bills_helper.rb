@@ -8,4 +8,8 @@ module BillsHelper
     card_number.scan(/.{1,4}/).join(' ')
   end
 
+  def hidden_card_number_format(card_number)
+    '●●●● ' + card_number.last(4)
+  end
+
 end

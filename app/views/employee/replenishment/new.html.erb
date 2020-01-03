@@ -1,0 +1,31 @@
+
+<div class="card">
+  <div class="card-header">
+    <%= t('replenishment.field.select_bill') %>
+  </div>
+  <div class="card-body">
+    <%= form_with(url: employee_replenishment_index_path, local: true,
+                  html: { autocomplete: "off" }) do |form| %>
+
+      <div class="custom_radio_group">
+        <% @bills.each do |bill| %>
+          <%= render(partial: 'partials/replenishment/radio_card', locals: { bill: bill }) %>
+        <% end %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :amount, t('bill.field.sum') %>
+        <div class="input-group mb-3">
+          <%= form.text_field :amount, class: 'form-control money', value: '' %>
+          <div class="input-group-append">
+            <span class="input-group-text"><%= t('number.currency.format.unit') %></span>
+          </div>
+        </div>
+      </div>
+      <%= render(partial: 'partials/fast_money_buttons') %>
+      <div class="actions mt-3">
+        <%= form.submit t('action.replenishment'), class: 'btn btn-success mb-3' %>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -54,7 +54,7 @@ uk:
       successCreateBill: 'Рахунок був спішно створений.'
       successUpdateBill: 'Рахунок був успішно відредагований.'
       successDestroyBill: 'Рахунок був успішно видалений.'
-      successOrderingBill: 'Разунок був успішно замовлений. Чекайте електронного листа від системи.'
+      successOrderingBill: 'Рахунок був успішно замовлений. Чекайте електронного листа від системи.'
   action:
     order: 'Замовити'
     save: 'Зберегти'
@@ -72,7 +72,7 @@ uk:
   messages:
     errorDomain: 'Недопустимий домен поштової скриньки'
     errorName: "Недопустиме ім'я поштової скриньки"
-    success_rep_bill: 'Разунок поповнено успішно!'
+    success_rep_bill: 'Рахунок поповнено успішно!'
     enter_password: 'Введіть свій новий пароль'
     password_updated: 'Пароль успішно змінено!'
   placeholders:
@@ -136,6 +136,9 @@ uk:
       successUpdated: 'Рахунок було успішно оновлено!'
   bill_request:
     auto_approved: 'Статус змінено автоматично!'
+  replenishment:
+    field:
+      select_bill: 'Виберіть рахунок'
   transaction:
     field:
       amount: 'Сума'
@@ -182,6 +185,8 @@ uk:
       show: 'Інформація по транзакції'
     info:
       index: 'Моя інформація'
+    replenishment:
+      new: 'Поповнення'
   validation:
     amountError: 'Не правильний формат введення!'
     billTypeError: 'Не правильний тип!'

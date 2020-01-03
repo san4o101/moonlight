@@ -11,7 +11,7 @@
       <span class=""><%= card_date_expired(bill.expired_bill_at) %></span>
     </p>
     <p><strong><%= t('bill.field.type') %>:</strong>
-      <%= render partial: 'partials/bill_type', locals: { bill_type: bill.bill_type } %>
+      <%= render partial: 'partials/bills/type', locals: { bill_type: bill.bill_type } %>
     </p>
     <p><strong><%= t('bill.field.amount') %>:</strong>
       <span class=""><%= number_to_currency bill.amount %></span>

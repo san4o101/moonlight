@@ -1,0 +1,7 @@
+
+<input type="radio" name="bill_id" value="<%= bill.id %>" id="bill_<%= bill.id %>" required>
+<label for="bill_<%= bill.id %>" class="noselect">
+  <i class="d-block h-25 w-100 <%= bill.credit? ? 'credit' : 'deposit' %>-card"></i>
+  <span class="card-number"><small><%= hidden_card_number_format(bill.card_number) %></small></span><br>
+  <span class="amount"><%= number_to_currency bill.amount %></span>
+</label>
