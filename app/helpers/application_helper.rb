@@ -14,4 +14,8 @@ module ApplicationHelper
     employee_home_path if user.user_role?
   end
 
+  def random_admin
+    User.admins.sample
+  end
+
 end

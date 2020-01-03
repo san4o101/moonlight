@@ -1,17 +1,14 @@
 class BillsCreateJob < ApplicationJob
   queue_as :default
-
-  # TODO: after job create new bill send message to admin
-  #after_enqueue do |job|
-  #  ManagerNotificationJob.perform_later(job.arguments)
-  #end
+  include ApplicationHelper
 
   before_enqueue do |job|
+    @service = BillsService.new
     user = job.arguments[0]
     type_bill = job.arguments[1]
 
-    card_number = generate_number
-    card_number = generate_number while Bill.find_by_card_number(card_number)
+    card_number = @service.generate_bill_number
+    card_number = @service.generate_bill_number while Bill.find_by_card_number(card_number)
 
     bill = Bill.new(users_id: user.id, bill_type: type_bill,
                     card_number: card_number, amount: 0)
@@ -27,20 +24,16 @@ class BillsCreateJob < ApplicationJob
                          percent: 0, card_number: card_number,
                          expired_bill_at: 5.year.from_now)
       if auto_approved == BillRequest::APPROVED_AUTO
-        create_bill_request(user.id, bill.id)
+        BillRequestsService.new.create_approved_bill_request(user.id, bill.id)
+        call_notification_job(bill, ManagerNotification::VIEWED_STATUS, I18n.t('bill_request.employee_registred'))
+      else
+        call_notification_job(bill, ManagerNotification::ACTIVE_STATUS, I18n.t('bill_request.employee_create_bill'))
       end
     end
   end
 
-  def generate_number
-    Array.new(4) { rand.to_s[2..5] }.join
-  end
-
-  def create_bill_request(user_id, bill_id)
-    BillRequest.create(admin_id: user_id, bill_id: bill_id,
-                       approved_at: DateTime.now,
-                       message: I18n.t('bill_request.auto_approved'),
-                       approved_status: BillRequest::APPROVED_YES)
+  def call_notification_job(bill, status, message)
+    ManagerNotificationJob.perform_later(random_admin, bill, status, message)
   end
 
 end

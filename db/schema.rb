@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_23_145649) do
+ActiveRecord::Schema.define(version: 2020_01_03_185305) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 2019_12_23_145649) do
     t.bigint "admin_id"
     t.bigint "bill_id"
     t.string "message"
+    t.integer "status", default: 1
   end
 
   create_table "transactions", force: :cascade do |t|

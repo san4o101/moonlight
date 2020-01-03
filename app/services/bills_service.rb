@@ -1,6 +1,10 @@
 
 class BillsService
 
+  def generate_bill_number
+    Array.new(4) { rand.to_s[2..5] }.join
+  end
+
   def replenishment_bill(bill, transaction_status, new_amount)
     old_amount = bill.amount
     ActiveRecord::Base.transaction do

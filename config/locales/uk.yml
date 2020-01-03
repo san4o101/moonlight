@@ -127,6 +127,7 @@ uk:
       amount_limit: 'Ліміт'
       percent: 'Процент'
       sum: 'Сума поповнення'
+      message: 'Повідомлення'
     order: 'Замовити рахунок'
     ordering: 'Замовлення разунку'
     replenishment: 'Поповнити'
@@ -136,9 +137,15 @@ uk:
       successUpdated: 'Рахунок було успішно оновлено!'
   bill_request:
     auto_approved: 'Статус змінено автоматично!'
+    employee_create_bill: 'Користувачем замовлено новий рахунок!'
+    employee_registred: 'Рахунок створено автоматично, при реєстрації користувача!'
   replenishment:
     field:
       select_bill: 'Оберіть рахунок'
+  notifications:
+    types:
+      active: 'Активні оповіщення'
+      viewed: 'Переглянуті оповіщення'
   transaction:
     field:
       amount: 'Сума'
