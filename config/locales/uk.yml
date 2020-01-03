@@ -138,7 +138,7 @@ uk:
     auto_approved: 'Статус змінено автоматично!'
   replenishment:
     field:
-      select_bill: 'Виберіть рахунок'
+      select_bill: 'Оберіть рахунок'
   transaction:
     field:
       amount: 'Сума'
