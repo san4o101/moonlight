@@ -131,6 +131,7 @@ uk:
     order: 'Замовити рахунок'
     ordering: 'Замовлення разунку'
     replenishment: 'Поповнити'
+    transfer: 'Перевести'
     transactions: 'Транзакції'
     all_transactions: 'Всі транзакції'
     messages:
