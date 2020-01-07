@@ -5,11 +5,11 @@ RSpec.describe ManagerNotification, type: :model do
   let(:user) { FactoryBot.create(:user) }
   let(:bill) { FactoryBot.create(:bill, user: user) }
   let(:notification) do
-    FactoryBot.create(:manager_notification, user: user, bill: bill)
+    FactoryBot.create(:manager_notification, bill: bill)
   end
 
   context 'associations' do
-    it { should belong_to(:user) }
+    it { should belong_to(:admin) }
     it { should belong_to(:bill) }
   end
 
