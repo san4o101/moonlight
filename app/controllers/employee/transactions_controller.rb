@@ -16,6 +16,11 @@ module Employee
     def show
       add_breadcrumb I18n.t('breadcrumbs.transactions.show'),
                      :employee_bill_transaction_path
+
+      respond_to do |format|
+        format.html
+        format.json { render json: @transaction }
+      end
     end
 
     private

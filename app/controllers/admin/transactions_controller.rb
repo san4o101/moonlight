@@ -16,6 +16,10 @@ module Admin
     def show
       add_breadcrumb I18n.t('breadcrumbs.transactions.show'),
                      (proc { admin_user_bill_transaction_path(@user, @bill) })
+      respond_to do |format|
+        format.html
+        format.json { render json: @transaction }
+      end
     end
 
     private
