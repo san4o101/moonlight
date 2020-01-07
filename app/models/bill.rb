@@ -44,7 +44,7 @@ class Bill < ApplicationRecord
   end
 
   def expired?
-    expired_bill_at < Date.now
+    expired_bill_at < Date.today
   end
 
 end

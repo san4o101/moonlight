@@ -39,8 +39,8 @@ module Employee
     end
 
     def set_recipient_bill
-      @recipient = Bill.find_by_card_number(params[:card_number])
-      if @recipient.nil? || @recipient.id == @sender.id
+      @recipient = Bill.includes(:bill_request).find_by_card_number(params[:card_number])
+      if @recipient.nil? || (@recipient.id == @sender.id)
         flash[:warning] = t('messages.card_not_found')
         redirect_to action: :new
       end
