@@ -68,6 +68,7 @@ uk:
     settings: "Налаштування"
     empty: 'Тут поки що порожньо'
     replenishment: 'Поповнити'
+    transfer: 'Переказати'
     warning: 'Попередження'
   messages:
     errorDomain: 'Недопустимий домен поштової скриньки'
@@ -75,6 +76,8 @@ uk:
     success_rep_bill: 'Рахунок поповнено успішно!'
     enter_password: 'Введіть свій новий пароль'
     password_updated: 'Пароль успішно змінено!'
+    card_not_found: 'Рахунка з таким номером не знайдено, або Ви ввели свій рахунок який вибрали!'
+    not_enough_money: 'Недостатньо коштів на рахунку!'
   placeholders:
     first_name: "Введіть ім'я"
     last_name: 'Введіть фалімію'
@@ -128,10 +131,11 @@ uk:
       percent: 'Процент'
       sum: 'Сума поповнення'
       message: 'Повідомлення'
+      card_number_to_transfer: 'Номер рахунку для переводу'
     order: 'Замовити рахунок'
     ordering: 'Замовлення разунку'
     replenishment: 'Поповнити'
-    transfer: 'Перевести'
+    transfer: 'Переказати'
     transactions: 'Транзакції'
     all_transactions: 'Всі транзакції'
     messages:
@@ -157,6 +161,7 @@ uk:
       recipient: 'Отримувач'
     statuses:
       i_replenishment: 'Поповнення'
+      transfer: 'Переказ'
   navBar:
     countries: 'Countries'
     cities: 'Cities'
@@ -195,6 +200,8 @@ uk:
       index: 'Моя інформація'
     replenishment:
       new: 'Поповнення'
+    transfer:
+      new: 'Переказ'
   validation:
     amountError: 'Не правильний формат введення!'
     billTypeError: 'Не правильний тип!'

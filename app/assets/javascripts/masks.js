@@ -11,4 +11,8 @@ $(document).on('turbolinks:load', function() {
     $('.date').mask("99.99.9999", {
         placeholder: 'дд.мм.рррр'
     });
+
+    $('.card_number').mask("0000 0000 0000 0000", {
+        placeholder: '0000 0000 0000 0000'
+    });
 });

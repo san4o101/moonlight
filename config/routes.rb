@@ -32,6 +32,7 @@ Rails.application.routes.draw do
         resources :transactions, only: %i[index show]
       end
       resources :replenishment, only: %i[new create]
+      resources :transfer, only: %i[new create]
     end
   end
 

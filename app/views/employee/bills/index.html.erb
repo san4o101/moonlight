@@ -1,6 +1,6 @@
 <%= link_to t('bill.order'), new_employee_bill_path, class: 'btn btn-outline-success mb-3' %>
 <%= link_to t('bill.replenishment'), new_employee_replenishment_path, class: 'btn btn-outline-primary mb-3' %>
-<%= link_to t('bill.transfer'), '#', class: 'btn btn-outline-primary mb-3' %>
+<%= link_to t('bill.transfer'), new_employee_transfer_path, class: 'btn btn-outline-primary mb-3' %>
 
 <div class="card-body d-flex justify-content-start">
   <% @bills.each do |bill| %>

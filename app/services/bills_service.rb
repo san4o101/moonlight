@@ -16,10 +16,23 @@ class BillsService
     end
   end
 
+  def transfer_money(sender_bill, recipient_bill, amount)
+    amount_sender = sender_bill.amount
+    amount_recipient = recipient_bill.amount
+    sender_bill.transaction do
+      recipient_bill.transaction do
+        sender_bill.update(amount: amount_sender - amount)
+        recipient_bill.update(amount: amount_recipient + amount)
+        add_transaction(sender_bill.id, recipient_bill.id,
+                        Transaction::STATUS_TRANSFER, amount)
+      end
+    end
+  end
+
   private
 
-  def add_transaction(sender, recipient, status, amount)
-    Transaction.create(sender_id: sender, recipient_id: recipient,
+  def add_transaction(sender_id, recipient_id, status, amount)
+    Transaction.create(sender_id: sender_id, recipient_id: recipient_id,
                        amount: amount, status: status)
   end
 

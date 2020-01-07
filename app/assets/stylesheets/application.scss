@@ -31,6 +31,7 @@ body {
 }
 
 ul.ui-autocomplete {
+  cursor: pointer;
   position: absolute;
   top: 100%;
   left: 0;
@@ -60,6 +61,10 @@ ul.ui-autocomplete {
     color: #ffffff !important;
   }
 }
+.ui-menu.ui-widget.ui-widget-content.ui-autocomplete.ui-front {
+  padding: 0;
+}
+.ui-helper-hidden-accessible { display:none; }
 
 .breadcrumb li {
   padding-left: 10px !important;
