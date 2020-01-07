@@ -78,6 +78,7 @@ uk:
     password_updated: 'Пароль успішно змінено!'
     card_not_found: 'Рахунка з таким номером не знайдено, або Ви ввели свій рахунок який вибрали!'
     not_enough_money: 'Недостатньо коштів на рахунку!'
+    successCreateTransfer: 'Гроші були успішно передані!'
   placeholders:
     first_name: "Введіть ім'я"
     last_name: 'Введіть фалімію'

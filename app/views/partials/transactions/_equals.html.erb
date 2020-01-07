@@ -1,0 +1,9 @@
+<% unless transaction.i_replenishment? %>
+  <% if bill.i_send?(transaction.sender_id) %>
+    -
+  <% else %>
+    +
+  <% end %>
+<% else %>
+  +
+<% end %>

@@ -19,7 +19,10 @@
         <span class="card-number-recipient noselect"><%= card_number_format(@transaction.recipient.card_number) %></span>
         <i class="fa fa-sm fa-copy copy-icon ml-2 cursor-pointer" data-card="-recipient"></i>
       </td>
-      <td><%= @transaction.amount %></td>
+      <td>
+        <%= render(partial: 'partials/transactions/equals', locals: { bill: @bill, transaction: @transaction }) %>
+        <%= @transaction.amount %>
+      </td>
       <td>
         <%= render(partial: 'partials/transactions/status', locals: { transaction: @transaction }) %>
       </td>

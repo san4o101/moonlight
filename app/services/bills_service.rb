@@ -21,8 +21,8 @@ class BillsService
     amount_recipient = recipient_bill.amount
     sender_bill.transaction do
       recipient_bill.transaction do
-        sender_bill.update(amount: amount_sender - amount)
-        recipient_bill.update(amount: amount_recipient + amount)
+        sender_bill.update!(amount: amount_sender - amount)
+        recipient_bill.update!(amount: amount_recipient + amount)
         add_transaction(sender_bill.id, recipient_bill.id,
                         Transaction::STATUS_TRANSFER, amount)
       end

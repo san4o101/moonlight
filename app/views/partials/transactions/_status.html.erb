@@ -1,5 +1,12 @@
 <% if transaction.i_replenishment? %>
   <span class="badge badge-info noselect"><%= t('transaction.statuses.i_replenishment') %></span>
 <% elsif transaction.transfer? %>
-  <span class="badge badge-warning noselect"><%= t('transaction.statuses.transfer') %></span>
+  <span class="badge badge-warning noselect">
+    <%= t('transaction.statuses.transfer') %>
+    <% if @bill.i_send?(transaction.sender_id) %>
+      <i class="ml-1 fa fa-arrow-right"></i>
+    <% else %>
+      <i class="ml-1 fa fa-arrow-left"></i>
+    <% end %>
+  </span>
 <% end %>

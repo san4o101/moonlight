@@ -35,4 +35,16 @@ class Bill < ApplicationRecord
     bill_type == DEPOSIT_TYPE
   end
 
+  def i_send?(sender_id)
+    id == sender_id
+  end
+
+  def enough_amount?(send_amount)
+    amount < send_amount
+  end
+
+  def expired?
+    expired_bill_at < Date.now
+  end
+
 end

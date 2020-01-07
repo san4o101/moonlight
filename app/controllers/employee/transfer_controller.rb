@@ -16,6 +16,16 @@ module Employee
     def create
       amount = params[:amount].to_f
       BillsService.new.transfer_money(@sender, @recipient, amount)
+
+      respond_to do |format|
+        format.html { redirect_to employee_bills_path, notice: t('messages.successCreateTransfer') }
+        format.json { render :show, status: :created, location: employee_transfer_path }
+      end
+    rescue ActiveRecord::RecordInvalid => e
+      respond_to do |format|
+        format.html { redirect_to new_employee_transfer_path, notice: e.message }
+        format.json { render json: @sender.errors, status: :unprocessable_entity }
+      end
     end
 
     private
@@ -47,7 +57,8 @@ module Employee
     end
 
     def check_sender_amount
-      if @sender.amount < params[:amount].to_f
+      if @sender.enough_amount?(params[:amount].to_f) &&
+         (@sender.expired? && @recipient.expired?)
         flash[:danger] = t('messages.not_enough_money')
         redirect_to action: :new
       end

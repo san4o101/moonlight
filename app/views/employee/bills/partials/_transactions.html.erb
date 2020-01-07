@@ -5,6 +5,7 @@
     <%= render(partial: 'partials/transactions/status', locals: { transaction: transactions }) %>
   </td>
   <td>
+    <%= render(partial: 'partials/transactions/equals', locals: { bill: @bill, transaction: transactions }) %>
     <%= transactions.amount %>
   </td>
   <td>
