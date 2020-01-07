@@ -1,5 +1,5 @@
 
-<tr class="active_table__tr" data-location="#"
+<tr class="active_table__tr" data-location="<%= admin_user_bill_transaction_path(@user, @bill, transactions) %>"
     data-toggle="tooltip" data-placement="bottom" title="<%= t('transaction.field.information', id: transactions.id) %>">
   <td>
     <%= render(partial: 'partials/transactions/status', locals: { transaction: transactions }) %>

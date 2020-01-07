@@ -10,7 +10,7 @@
     <div class="card shadow">
       <div class="card-header">
         <strong><%= t('bill.field.card_new_transaction') %></strong>
-        <%#= link_to t('bill.all_transactions'), employee_bill_transactions_path(@bill), class: 'btn btn-sm btn-outline-secondary float-right' %>
+        <%= link_to t('bill.all_transactions'), admin_user_bill_transactions_path(@user, @bill), class: 'btn btn-sm btn-outline-secondary float-right' %>
       </div>
       <%= render(partial: 'partials/transactions/list', locals: { transactions: @transactions,
                                                                   user: pundit_user }) %>

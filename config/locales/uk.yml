@@ -195,6 +195,7 @@ uk:
       replenishment: 'Поповнення'
       edit: 'Редагування'
     transactions:
+      header: 'Транзакції'
       index: 'Мої транзакції'
       show: 'Інформація по транзакції'
     info:

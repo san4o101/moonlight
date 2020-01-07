@@ -17,7 +17,9 @@ Rails.application.routes.draw do
         get '/password', to: 'users#password', as: :password
         patch '/password', to: 'users#password_change',
                            as: :change_password
-        resources :bills, only: %i[show edit update]
+        resources :bills, only: %i[show edit update] do
+          resources :transactions, only: %i[index show]
+        end
       end
 
       namespace :settings do
@@ -28,7 +30,7 @@ Rails.application.routes.draw do
 
     namespace :employee do
       get '/', to: 'home#index', as: :home
-      resources :bills, only: %i[index show new create destroy] do
+      resources :bills, only: %i[index show new create] do
         resources :transactions, only: %i[index show]
       end
       resources :replenishment, only: %i[new create]
