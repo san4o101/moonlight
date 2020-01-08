@@ -8,7 +8,8 @@
   </thead>
   <tbody>
   <% notifications.each do |notification| %>
-    <tr>
+    <tr class="active_table__tr" data-location="<%= admin_notification_path(notification) %>"
+        data-toggle="tooltip" data-placement="bottom" title="<%= t('notifications.action.show', notification: notification.id) %>">
       <td>
         <nobr><%= card_number_format notification.bill.card_number %></nobr>
       </td>

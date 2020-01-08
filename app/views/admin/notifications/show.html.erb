@@ -1,0 +1,34 @@
+<div class="actions">
+  <% if @notification.status == ManagerNotification::ACTIVE_STATUS %>
+    <%= link_to t('notifications.action.change_admin'), edit_admin_notification_path(@notification),
+                class: 'btn btn-outline-success mb-3 mr-2' %>
+  <% end %>
+</div>
+
+<div class="card shadow">
+  <div class="card-header">
+    <strong>
+      <%= t('breadcrumbs.notification.index') %>
+      <%= t('breadcrumbs.notification.show', notification: @notification.id) %>
+      <%= render(partial: 'partials/notifications/status', locals: { notification: @notification }) %>
+    </strong>
+  </div>
+  <div class="card-body">
+    <p class="message">
+      <strong><%= t('notifications.field.message') %>:</strong>
+      <span><%= @notification.message %></span>
+    </p>
+    <p class="user">
+      <strong><%= t('notifications.field.user') %>:</strong>
+      <a href="<%= admin_user_path(@notification.bill.user) %>">
+        <%= @notification.bill.user.full_name_aliases %>
+      </a>
+    </p>
+    <p class="bill">
+      <strong><%= t('notifications.field.bill') %>:</strong>
+      <a class="noselect" href="<%= admin_user_bill_path(@notification.bill.user, @notification.bill) %>">
+        <%= card_number_format(@notification.bill.card_number) %>
+      </a>
+    </p>
+  </div>
+</div>

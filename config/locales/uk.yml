@@ -149,9 +149,24 @@ uk:
     field:
       select_bill: 'Оберіть рахунок'
   notifications:
+    field:
+      header: 'Сповіщення'
+      message: 'Повідомлення'
+      status: 'Статус'
+      user: 'Користувач'
+      bill: 'Рахунок'
+      admin: 'Адміністратор'
+    action:
+      show: 'Сповіщення #%{notification}'
+      change_admin: 'Змінити адміністратора'
     types:
+      active_one: 'Активне'
+      viewed_one: 'Переглянуте'
       active: 'Активні оповіщення'
       viewed: 'Переглянуті оповіщення'
+    messages:
+      successEditAdmin: 'Сповіщення передано новому адміністратору!'
+      giveNameNewAdmin: "Почніть вводити ім'я нового адміністратора"
   transaction:
     field:
       amount: 'Сума'
@@ -204,6 +219,11 @@ uk:
       new: 'Поповнення'
     transfer:
       new: 'Переказ'
+    notification:
+      index: 'Сповіщення'
+      show: '#%{notification}'
+      edit_admin: 'Редагування адміністратора'
+      edit: 'Редагування сповіщення'
   validation:
     amountError: 'Не правильний формат введення!'
     billTypeError: 'Не правильний тип!'

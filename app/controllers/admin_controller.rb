@@ -25,4 +25,11 @@ class AdminController < ApplicationController
     params[:id] = params[:user_id] unless params[:id].present?
     @user = User.find(params[:id])
   end
+
+  def my_notification?(notification_id)
+    my_notifications_id = ManagerNotification.my_all(pundit_user.id).pluck(:id)
+    unless my_notifications_id.include?(notification_id)
+      render_error_page(403, :forbidden)
+    end
+  end
 end

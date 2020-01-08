@@ -12,5 +12,45 @@
 //
 //= require application
 
-$(function () {
+$(document).on('turbolinks:load', function() {
+
+    let CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+    let manager_notification_admin = $('#manager_notification_admin');
+    let manager_notification_admin_id = $('#manager_notification_admin_id');
+
+    manager_notification_admin.autocomplete({
+        source: function (request, response) {
+            let request_admin = request.term;
+            $.ajax({
+                headers: {
+                    'X-CSRF-Token': CSRF_TOKEN
+                },
+                type: "POST",
+                url: "/admin/autocomplete_admin",
+                dataType: 'json',
+                data: {name: request_admin},
+                success: function(suggestion){
+                    response( $.map( suggestion.admin, function( result ) {
+                        return {
+                            label: result.full_name,
+                            id: result.id
+                        }
+                    }));
+                }
+            });
+        },
+        position: {  collision: "flip"  },
+        select: function( event, suggestions ) {
+            manager_notification_admin_id.val(suggestions.item.id);
+        },
+        create: function () {
+            $(this).data( "ui-autocomplete" )._renderItem = function( ul, item ) {
+                return $( "<li></li>" )
+                    .data( "item.autocomplete", item )
+                    .append(item.label)
+                    .appendTo( ul );
+            };
+        }
+    });
+
 });

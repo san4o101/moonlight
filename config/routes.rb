@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 
     namespace :admin do
       get '/', to: 'home#index', as: :home
+      post '/autocomplete_admin', to: 'autocomplete#autocomplete_admin',
+                                  as: :autocomplete_admin
 
       resources :users, except: %i[new create] do
         get '/password', to: 'users#password', as: :password
@@ -21,6 +23,8 @@ Rails.application.routes.draw do
           resources :transactions, only: %i[index show]
         end
       end
+
+      resources :notifications, except: %i[new create destroy]
 
       namespace :settings do
         resources :cities
