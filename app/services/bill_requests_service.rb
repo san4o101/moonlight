@@ -7,7 +7,7 @@ class BillRequestsService
     BillRequest.create(admin_id: user_id, bill_id: bill_id,
                        approved_at: DateTime.now,
                        message: I18n.t('bill_request.auto_approved'),
-                       approved_status: BillRequest::APPROVED_YES)
+                       approved_status: BillRequest.approved_statuses[:approved])
   end
 
 end

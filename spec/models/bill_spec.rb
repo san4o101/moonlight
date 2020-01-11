@@ -31,22 +31,20 @@ RSpec.describe Bill, type: :model do
     it 'is not valid bill type' do
       test = Bill.new(bill_type: nil)
       expect(test).to_not be_valid
-      test.bill_type = 10_000
-      expect(test).to_not be_valid
     end
     it 'is not valid amount' do
       test = Bill.new(amount: nil)
       expect(test).to_not be_valid
-      test.bill_type = 10_000_000_000_000_000
+      test.amount = 10_000_000_000_000_000
       expect(test).to_not be_valid
     end
     it 'is credit bill' do
-      test = Bill.new(bill_type: Bill::CREDIT_TYPE)
-      expect(test.bill_type).to eq Bill::CREDIT_TYPE
+      test = Bill.new(bill_type: Bill.bill_types[:credit])
+      expect(test.bill_type).to eq Bill.bill_types.key(Bill.bill_types[:credit])
     end
     it 'is deposit bill' do
-      test = Bill.new(bill_type: Bill::DEPOSIT_TYPE)
-      expect(test.bill_type).to eq Bill::DEPOSIT_TYPE
+      test = Bill.new(bill_type: Bill.bill_types[:deposit])
+      expect(test.bill_type).to eq Bill.bill_types.key(Bill.bill_types[:deposit])
     end
   end
 

@@ -3,6 +3,6 @@ FactoryBot.define do
     admin_id { FactoryBot.create(:admin).id }
     bill_id { bill.id }
     message { 'Test message' }
-    status { ManagerNotification::ACTIVE_STATUS }
+    status { ManagerNotification.statuses[:active] }
   end
 end

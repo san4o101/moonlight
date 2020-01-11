@@ -48,12 +48,12 @@
     <%= label :gender, t('user.field.gender') %>
     <div class="row d-flex justify-content-around">
       <div class="form-check form-check-inline">
-        <%= form.radio_button :gender, User::GENDER_MALE, class: 'form-check-input' %>
-        <%= form.label :gender, t('user.gender.male'), value: User::GENDER_MALE, class: 'form-check-label' %>
+        <%= form.radio_button :gender, User.genders.key(User.genders[:male]), class: 'form-check-input' %>
+        <%= form.label :gender, t('user.gender.male'), value: User.genders.key(User.genders[:male]), class: 'form-check-label' %>
       </div>
       <div class="form-check form-check-inline">
-        <%= form.radio_button :gender, User::GENDER_FEMALE, class: 'form-check-input' %>
-        <%= form.label :gender, t('user.gender.female'), value: User::GENDER_FEMALE, class: 'form-check-label' %>
+        <%= form.radio_button :gender, User.genders.key(User.genders[:female]), class: 'form-check-input' %>
+        <%= form.label :gender, t('user.gender.female'), value: User.genders.key(User.genders[:female]), class: 'form-check-label' %>
       </div>
     </div>
     <% if user.errors[:gender].any? %>
@@ -67,12 +67,12 @@
     <%= label :role, t('user.field.role') %>
     <div class="row d-flex justify-content-around">
       <div class="form-check form-check-inline">
-        <%= form.radio_button :role, User::ADMIN_ROLE, class: 'form-check-input' %>
-        <%= form.label :role, t('user.role.admin'), value: User::ADMIN_ROLE, class: 'form-check-label' %>
+        <%= form.radio_button :role, User.roles.key(User.roles[:admin]), class: 'form-check-input' %>
+        <%= form.label :role, t('user.role.admin'), value: User.roles.key(User.roles[:admin]), class: 'form-check-label' %>
       </div>
       <div class="form-check form-check-inline">
-        <%= form.radio_button :role, User::USER_ROLE, class: 'form-check-input' %>
-        <%= form.label :role, t('user.role.employee'), value: User::USER_ROLE, class: 'form-check-label' %>
+        <%= form.radio_button :role, User.roles.key(User.roles[:user]), class: 'form-check-input' %>
+        <%= form.label :role, t('user.role.employee'), value: User.roles.key(User.roles[:user]), class: 'form-check-label' %>
       </div>
     </div>
     <% if user.errors[:role].any? %>

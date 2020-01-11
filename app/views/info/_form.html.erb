@@ -44,16 +44,17 @@
     <% end %>
   </div>
 
+
   <div class="form-group">
     <%= label :gender, t('user.field.gender') %>
     <div class="row d-flex justify-content-around">
       <div class="form-check form-check-inline">
-        <%= form.radio_button :gender, User::GENDER_MALE, class: 'form-check-input' %>
-        <%= form.label :gender, t('user.gender.male'), value: User::GENDER_MALE, class: 'form-check-label' %>
+        <%= form.radio_button :gender, User.genders.key(User.genders[:male]), class: 'form-check-input' %>
+        <%= form.label :gender, t('user.gender.male'), value: User.genders.key(User.genders[:male]), class: 'form-check-label' %>
       </div>
       <div class="form-check form-check-inline">
-        <%= form.radio_button :gender, User::GENDER_FEMALE, class: 'form-check-input' %>
-        <%= form.label :gender, t('user.gender.female'), value: User::GENDER_FEMALE, class: 'form-check-label' %>
+        <%= form.radio_button :gender, User.genders.key(User.genders[:female]), class: 'form-check-input' %>
+        <%= form.label :gender, t('user.gender.female'), value: User.genders.key(User.genders[:female]), class: 'form-check-label' %>
       </div>
     </div>
     <% if user.errors[:gender].any? %>

@@ -4,12 +4,12 @@
     <%= label :bill_type, t('bill.field.type') %>
     <div class="row d-flex justify-content-around">
       <div class="form-check form-check-inline">
-        <%= form.radio_button :bill_type, Bill::DEPOSIT_TYPE, class: 'form-check-input' %>
-        <%= form.label :bill_type, t('bill.types.deposit'), value: Bill::DEPOSIT_TYPE, class: 'form-check-label' %>
+        <%= form.radio_button :bill_type, Bill.bill_types[:deposit], class: 'form-check-input' %>
+        <%= form.label :bill_type, t('bill.types.deposit'), value: Bill.bill_types[:deposit], class: 'form-check-label' %>
       </div>
       <div class="form-check form-check-inline">
-        <%= form.radio_button :bill_type, Bill::CREDIT_TYPE, class: 'form-check-input' %>
-        <%= form.label :bill_type, t('bill.types.credit'), value: Bill::CREDIT_TYPE, class: 'form-check-label' %>
+        <%= form.radio_button :bill_type, Bill.bill_types[:credit], class: 'form-check-input' %>
+        <%= form.label :bill_type, t('bill.types.credit'), value: Bill.bill_types[:credit], class: 'form-check-label' %>
       </div>
     </div>
     <% if bill.errors[:bill_type].any? %>

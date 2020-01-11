@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
   # @return path
   def after_sign_in_path_for(resource)
     session[:user_id] = resource.id
-    resource.update(status: User::STATUS_ACTIVE)
+    resource.update(status: User.statuses[:active])
     redirect_to_role_route(resource)
   end
 

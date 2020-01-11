@@ -3,7 +3,7 @@
 require 'csv'
 
 User.create(email: 'admin@moonlight.com', first_name: 'Admin',
-            last_name: 'Admin', password: 'secret', role: User::ADMIN_ROLE,
+            last_name: 'Admin', password: 'secret', role: :admin,
             confirmed_at: '2019-11-01 00:01:00')
 
 # Add Countries

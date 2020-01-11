@@ -1,5 +1,5 @@
-<% if notification.status == ManagerNotification::ACTIVE_STATUS %>
+<% if notification.active? %>
   <span class="badge badge-success noselect"><%= t('notifications.types.active_one') %></span>
-<% elsif notification.status == ManagerNotification::VIEWED_STATUS %>
+<% elsif notification.viewed? %>
   <span class="badge badge-secondary noselect"><%= t('notifications.types.viewed_one') %></span>
 <% end %>

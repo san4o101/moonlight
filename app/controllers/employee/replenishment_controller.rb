@@ -11,7 +11,7 @@ module Employee
     def new; end
 
     def create
-      BillsService.new.replenishment_bill(@bill, Transaction::STATUS_I_REPLENISHMENT,
+      BillsService.new.replenishment_bill(@bill, Transaction.statuses[:i_replenishment],
                                           replenishment_params[:amount].to_f)
       respond_to do |format|
         format.html { redirect_to employee_bill_url(@bill), notice: t('messages.success_rep_bill') }

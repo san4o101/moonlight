@@ -27,19 +27,12 @@ class User < ApplicationRecord
   DENY_DOMAINS = %w[test.com test.ru test.ua admin.com admin.ua admin.ru].freeze
   DENY_NAMES = %w[test administrator].freeze
 
-  ADMIN_ROLE = 1
-  USER_ROLE  = 2
+  enum role: { admin: 1, user: 2 }, _suffix: true
+  enum status: %i[active disable deleted blocked]
+  enum gender: { male: 1, female: 2 }
 
-  STATUS_ACTIVE   = 'active'
-  STATUS_DISABLE  = 'disable'
-  STATUS_DELETE   = 'delete'
-  STATUS_BLOCKED  = 'blocked'
-
-  GENDER_MALE   = 1
-  GENDER_FEMALE = 2
-
-  scope :admins, -> { where(role: ADMIN_ROLE) }
-  scope :employees, -> { where(role: USER_ROLE) }
+  scope :admins, -> { where(role: :admin) }
+  scope :employees, -> { where(role: :user) }
 
   validates_each :first_name, :last_name, :second_name do |record, attr, value|
     if value =~ /\A[а-яёїіє|a-z]/
@@ -52,14 +45,6 @@ class User < ApplicationRecord
   validates :password, confirmation: true
   validate :email_start_is_deny?
   validate :email_end_is_deny?
-
-  def admin_role?
-    role == ADMIN_ROLE
-  end
-
-  def user_role?
-    role == USER_ROLE
-  end
 
   def full_name?
     first_name.nil? && last_name.nil?
@@ -74,8 +59,8 @@ class User < ApplicationRecord
   end
 
   def gender_name
-    return I18n.t('user.gender.male') if gender == GENDER_MALE
-    I18n.t('user.gender.female') if gender == GENDER_FEMALE
+    return I18n.t('user.gender.male') if male?
+    I18n.t('user.gender.female') if female?
   end
 
   private

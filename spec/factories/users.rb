@@ -7,10 +7,10 @@ FactoryBot.define do
     password { 'secret123' }
     password_confirmation { 'secret123' }
     confirmed_at { '2019-11-01 00:01:00' }
-    role { User::USER_ROLE }
+    role { User.roles[:user] }
 
     factory :admin, class: 'User' do
-      role { User::ADMIN_ROLE }
+      role { User.roles[:admin] }
     end
   end
 

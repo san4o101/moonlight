@@ -24,7 +24,7 @@ class BillsService
         sender_bill.update!(amount: amount_sender - amount)
         recipient_bill.update!(amount: amount_recipient + amount)
         add_transaction(sender_bill.id, recipient_bill.id,
-                        Transaction::STATUS_TRANSFER, amount)
+                        Transaction.statuses[:transfer], amount)
       end
     end
   end

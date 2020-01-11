@@ -4,16 +4,8 @@ class Transaction < ApplicationRecord
 
   paginates_per 15
 
-  STATUS_I_REPLENISHMENT = 1
-  STATUS_TRANSFER = 2
+  enum status: { i_replenishment: 1, transfer: 2 }
 
   scope :order_by_date, -> { order('created_at DESC') }
 
-  def i_replenishment?
-    status == STATUS_I_REPLENISHMENT
-  end
-
-  def transfer?
-    status == STATUS_TRANSFER
-  end
 end

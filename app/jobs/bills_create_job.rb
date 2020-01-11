@@ -18,16 +18,16 @@ class BillsCreateJob < ApplicationJob
   end
 
   def perform(user, type_bill, card_number = nil,
-              auto_approved = BillRequest::APPROVED_AUTO)
+              auto_approved = BillRequest.approved_statuses[:auto])
     ActiveRecord::Base.transaction do
       bill = Bill.create(users_id: user.id, bill_type: type_bill, amount: 0,
                          percent: 0, card_number: card_number,
                          expired_bill_at: 5.year.from_now)
-      if auto_approved == BillRequest::APPROVED_AUTO
+      if auto_approved == BillRequest.approved_statuses[:auto]
         BillRequestsService.new.create_approved_bill_request(user.id, bill.id)
-        call_notification_job(bill, ManagerNotification::VIEWED_STATUS, I18n.t('bill_request.employee_registred'))
+        call_notification_job(bill, ManagerNotification.statuses[:viewed], I18n.t('bill_request.employee_registred'))
       else
-        call_notification_job(bill, ManagerNotification::ACTIVE_STATUS, I18n.t('bill_request.employee_create_bill'))
+        call_notification_job(bill, ManagerNotification.statuses[:active], I18n.t('bill_request.employee_create_bill'))
       end
     end
   end

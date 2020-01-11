@@ -1,5 +1,5 @@
 <div class="actions">
-  <% if @notification.status == ManagerNotification::ACTIVE_STATUS %>
+  <% if @notification.active? %>
     <%= link_to t('notifications.action.change_admin'), edit_admin_notification_path(@notification),
                 class: 'btn btn-outline-success mb-3 mr-2' %>
   <% end %>
