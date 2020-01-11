@@ -6,7 +6,9 @@
 # MOONLIGHT SYSTEM
 
 ### Info
-coming soon...
+Hello. This is the bank of the future (no). 
+Its main functionality is described in my terms of reference, 
+which I adhere to.
 ### Install
 <b>Clone repository</b>
 ```
@@ -79,4 +81,19 @@ rspec spec/jobs
 bundle exex rspec spec/jobs
 ```
 ### Start app
-coming soon...
+You are crazy if you want to use IT, buuut I will tell you how to do it. <br>
+Take <img src="https://image.flaticon.com/icons/svg/689/689876.svg" height="20px" width="20px"> (tambourine) and proceed.
+1. First go [Install] the repository
+2. Run [Tests] now
+
+All is well? Amazing! <br>
+Now can customize your [Apache2] or [Nginx]. Before need install necessary rails and ruby versions.
+
+Thank you. <br>
+P.S. If you want to donate me, contact me on [Instagram]. 
+
+[install]: https://github.com/san4o101/moonlight#install
+[tests]: https://github.com/san4o101/moonlight#tests
+[apache2]: https://www.digitalocean.com/community/tutorials/how-to-deploy-a-rails-app-with-passenger-and-apache-on-ubuntu-14-04#step-4-%E2%80%94-install-apache
+[nginx]: https://www.digitalocean.com/community/tutorials/how-to-deploy-a-rails-app-with-passenger-and-nginx-on-ubuntu-14-04#step-five-%E2%80%94-install-passenger-and-nginx
+[instagram]: https://www.instagram.com/sanya._.s
