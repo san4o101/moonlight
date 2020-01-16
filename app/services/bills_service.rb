@@ -29,6 +29,18 @@ class BillsService
     end
   end
 
+  def update_bill(bill, params)
+    if bill.deposit?
+      bill.update(params)
+    elsif bill.credit?
+      bill.transaction do
+        bill.update(params)
+        bill.amount = params[:amount_limit]
+        bill.save!
+      end
+    end
+  end
+
   private
 
   def add_transaction(sender_id, recipient_id, status, amount)

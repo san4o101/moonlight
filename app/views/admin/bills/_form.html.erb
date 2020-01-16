@@ -11,6 +11,10 @@
     <% end %>
   </div>
 
+  <% if bill.credit? %>
+    <%= render(partial: 'partials/bills/credit_edit_admin', locals: { form: form }) %>
+  <% end %>
+
   <div class="actions">
     <%= form.submit button_name, class: 'btn btn-success mb-3' %>
   </div>

@@ -1,0 +1,29 @@
+<div class="form-group">
+  <%= form.label :percent, t('bill.field.percent') %>
+  <div class="input-group mb-3">
+    <%= form.text_field :percent, class: 'form-control percent', required: true %>
+    <div class="input-group-append">
+      <span class="input-group-text">%</span>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <%= form.label :amount_limit, t('bill.field.amount_limit') %>
+  <div class="input-group mb-3">
+    <%= form.text_field :amount_limit, class: 'form-control money', required: true %>
+    <div class="input-group-append">
+      <span class="input-group-text"><%= t('number.currency.format.unit') %></span>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <%= form.label :regular_replenishment_amount, t('bill.field.regular_replenishment_amount') %>
+  <div class="input-group mb-3">
+    <%= form.text_field :regular_replenishment_amount, class: 'form-control money', required: true %>
+    <div class="input-group-append">
+      <span class="input-group-text"><%= t('number.currency.format.unit') %></span>
+    </div>
+  </div>
+</div>

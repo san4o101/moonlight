@@ -1,11 +1,11 @@
 <p><strong><%= t('bill.field.amount_limit') %>:</strong>
-  <span class=""><%= bill.amount_limit %></span>
+  <span class=""><%= number_to_currency bill.amount_limit %></span>
 </p>
 <p><strong><%= t('bill.field.percent') %>:</strong>
   <span class=""><%= bill.percent %> %</span>
 </p>
 <p><strong><%= t('bill.field.regular_replenishment_amount') %>:</strong>
-  <span class=""><%= bill.regular_replenishment_amount %></span>
+  <span class=""><%= number_to_currency bill.regular_replenishment_amount %></span>
 </p>
 <p><strong><%= t('bill.field.replenishment_at') %>:</strong>
   <span class=""><%= bill.replenishment_at %></span>
