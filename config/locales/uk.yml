@@ -159,6 +159,8 @@ uk:
     action:
       show: 'Сповіщення #%{notification}'
       change_admin: 'Змінити адміністратора'
+      change_status: 'Змінити статус'
+      changed: 'Ви впевнені, що хочете змінити статус на "Переглянуте"?'
     types:
       active_one: 'Активне'
       viewed_one: 'Переглянуте'
@@ -167,6 +169,8 @@ uk:
     messages:
       successEditAdmin: 'Сповіщення передано новому адміністратору!'
       giveNameNewAdmin: "Почніть вводити ім'я нового адміністратора"
+      successEditStatus: 'Статус сповіщення змінено на "Переглянуте"!'
+      errorEditStatus: 'Виникла помилка при редагуванні статусу!'
   transaction:
     field:
       amount: 'Сума'

@@ -1,7 +1,7 @@
 module Admin
 
   class NotificationsController < AdminController
-    before_action :set_notification, only: %i[show edit update destroy]
+    before_action :set_notification, only: %i[show edit update close]
     before_action :set_active_notifications, only: %i[index]
     before_action :set_viewed_notifications, only: %i[index]
 
@@ -30,18 +30,24 @@ module Admin
       end
     end
 
-    #def destroy
-    #  @notification.destroy
-    #  respond_to do |format|
-    #    format.html { redirect_to notifications_url, notice: 'Notification was successfully destroyed.' }
-    #    format.json { head :no_content }
-    #  end
-    #end
+    def close
+      respond_to do |format|
+        # Update status on VIEWED
+        if @notification.viewed!
+          format.html { redirect_to admin_notification_path(@notification), notice: t('notifications.messages.successEditStatus') }
+          format.json { head :no_content }
+        else
+          format.html { redirect_to admin_notification_path(@notification), notice: t('notifications.messages.errorEditStatus') }
+          format.json { render json: @notification.errors, status: :unprocessable_entity }
+        end
+      end
+    end
 
     private
 
     def set_notification
-      @notification = ManagerNotification.includes(:admin, :bill).find(params[:id])
+      id = params[:id].present? ? params[:id] : params[:notification_id]
+      @notification = ManagerNotification.includes(:admin, :bill).find(id)
       my_notification? @notification.id
     end
 

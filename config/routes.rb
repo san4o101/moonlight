@@ -24,7 +24,9 @@ Rails.application.routes.draw do
         end
       end
 
-      resources :notifications, except: %i[new create destroy]
+      resources :notifications, except: %i[new create destroy] do
+        post '/close', to: 'notifications#close', as: :close
+      end
 
       namespace :settings do
         resources :cities

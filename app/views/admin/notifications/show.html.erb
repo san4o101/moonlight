@@ -2,6 +2,8 @@
   <% if @notification.active? %>
     <%= link_to t('notifications.action.change_admin'), edit_admin_notification_path(@notification),
                 class: 'btn btn-outline-success mb-3 mr-2' %>
+    <%= link_to t('notifications.action.change_status'), admin_notification_close_path(@notification),
+                class: 'btn btn-outline-primary mb-3 mr-2', method: :post, data: { confirm: t('notifications.action.changed') } %>
   <% end %>
 </div>
 
