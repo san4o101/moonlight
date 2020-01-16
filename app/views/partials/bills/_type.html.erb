@@ -1,5 +1,5 @@
-<% if bill_type == Bill.bill_types[:deposit] %>
+<% if bill_type == Bill.bill_types.key(Bill.bill_types[:deposit]) %>
   <span class="badge text-white deposit-color noselect"><%= t('bill.types.deposit') %></span>
-<% elsif bill_type == Bill.bill_types[:credit] %>
+<% elsif bill_type == Bill.bill_types.key(Bill.bill_types[:credit]) %>
   <span class="badge text-white credit-color noselect"><%= t('bill.types.credit') %></span>
 <% end %>
