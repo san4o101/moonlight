@@ -36,4 +36,8 @@ class Bill < ApplicationRecord
     expired_bill_at < Date.today
   end
 
+  def full_info?
+    amount_limit.present? && regular_replenishment_amount.present? && percent != 0
+  end
+
 end

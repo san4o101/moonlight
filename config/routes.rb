@@ -26,6 +26,7 @@ Rails.application.routes.draw do
 
       resources :notifications, except: %i[new create destroy] do
         post '/close', to: 'notifications#close', as: :close
+        post '/activate_bill', to: 'notifications#activate_bill', as: :activate_bill
       end
 
       namespace :settings do

@@ -1,5 +1,9 @@
 <div class="actions">
   <% if @notification.active? %>
+    <% if @notification.message == t('bill_request.employee_create_bill') %>
+      <%= link_to t('notifications.action.activate_bill'), admin_notification_activate_bill_path(@notification),
+                  class: 'btn btn-success mb-3 mr-2', method: :post, data: { confirm: t('notifications.action.activated') } %>
+    <% end %>
     <%= link_to t('notifications.action.change_admin'), edit_admin_notification_path(@notification),
                 class: 'btn btn-outline-success mb-3 mr-2' %>
     <%= link_to t('notifications.action.change_status'), admin_notification_close_path(@notification),

@@ -6,10 +6,11 @@ class UpdateUserBillJob < ApplicationJob
     bill = job.arguments[0]
     admin = job.arguments[1]
 
-    message = I18n.t('mails.update_bill.message', card: bill.card_number,
-                                                  admin: admin.full_name)
-
-    job.arguments[2] = message
+    unless job.arguments[2].present?
+      message = I18n.t('mails.update_bill.message', card: bill.card_number,
+                                                    admin: admin.full_name)
+      job.arguments[2] = message
+    end
   end
 
   def perform(bill, _admin, message = nil)
