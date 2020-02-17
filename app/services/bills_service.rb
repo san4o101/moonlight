@@ -2,7 +2,13 @@
 class BillsService
 
   def generate_bill_number
-    Array.new(4) { rand.to_s[2..5] }.join
+    # Array.new(4) { rand.to_s[2..5] }.join
+    user_time_i = Time.new(1998, 6, 10, 12, 0, 0).to_i
+    one_number = Time.now.to_i.to_s.reverse.scan(/.{4}/)[0]
+    two_number = (Time.now.to_i - user_time_i).to_s.scan(/.{4}/)[1]
+    three_number = Time.at(Time.now.to_f + user_time_i).to_f.to_s.scan(/.{4}/).last
+    four_number = Time.now.to_f.to_s.reverse.scan(/.{4}/)[0]
+    "#{one_number}#{two_number}#{three_number}#{four_number}"
   end
 
   def replenishment_bill(bill, transaction_status, new_amount)

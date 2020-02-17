@@ -8,7 +8,7 @@ class BillsCreateJob < ApplicationJob
     type_bill = job.arguments[1]
 
     card_number = @service.generate_bill_number
-    card_number = @service.generate_bill_number while Bill.find_by_card_number(card_number)
+    # card_number = @service.generate_bill_number while Bill.find_by_card_number(card_number)
 
     bill = Bill.new(users_id: user.id, bill_type: type_bill,
                     card_number: card_number, amount: 0)
